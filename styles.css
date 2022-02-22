@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+.c-icon-card {
+  background-color: #F3F3F8;
+  padding: 20px;
+  border-radius: 8px;
+  width: 33%;
+  font-family: "Montserrat", sans-serif;
+}
+.c-icon-card__title {
+  color: #39126F;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 700;
+}
+.c-icon-card__subtitle {
+  color: rgba(57, 18, 111, 0.6);
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.c-image-card {
+  height: 320px;
+  width: 287px;
+}
+.c-image-card figure {
+  height: 320px;
+  width: 100%;
+  margin: 0;
+}
+.c-image-card figure img {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.c-image-card__wrapper {
+  position: relative;
+}
+.c-image-card__title {
+  position: absolute;
+  bottom: 3%;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 21px;
+  font-weight: 600px;
+}
+
+.c-download-app {
+  background-color: #F5F5F9;
+  padding: 20px;
+  font-family: "Montserrat", sans-serif;
+}
+@media (min-width: 900px) {
+  .c-download-app {
+    padding: 30px 80px;
+  }
+}
+@media (min-width: 768px) {
+  .c-download-app__wrapper {
+    display: flex;
+  }
+  .c-download-app__text, .c-download-app__img {
+    flex-basis: 50%;
+  }
+}
+.c-download-app__content ul {
+  font-size: 16px;
+  line-height: 29px;
+  padding-left: 3%;
+  color: rgba(16, 1, 36, 0.55);
+}
+.c-download-app__img {
+  text-align: left;
+  margin-bottom: -30px;
+}
+@media (min-width: 768px) {
+  .c-download-app__img {
+    text-align: center;
+  }
+}
+.c-download-app__logos {
+  margin-top: 43px;
+}
+.c-download-app__logos img {
+  width: 204px;
+  height: 60px;
+}
+.c-download-app__title {
+  font-size: 30px;
+  line-height: 37px;
+}
+
+.c-nav {
+  margin-top: 60px;
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .c-nav {
+    display: flex;
+  }
+}
+.c-nav__title {
+  font-size: 2rem;
+  color: #39126F;
+  font-weight: bold;
+  text-align: center;
+}
+.c-nav__button {
+  width: 30%;
+  margin: 10px;
+  border-radius: 24px;
+  background-color: #39126F;
+  color: #fff;
+  min-height: 45px;
+}
+.c-nav__button.is-selected {
+  background-color: #fff;
+  color: #39126F;
+  border: 2px solid #39126F;
+}
+
+.c-table-container {
+  display: none;
+}
+.c-table-container.is-visible {
+  display: inherit;
+}
+
+.c-table {
+  margin-top: 40px;
+}
+.c-table th {
+  color: #39126F;
+  font-size: 1.8rem;
+  padding: 30px;
+}
+.c-table td {
+  font-size: 1.4rem;
+  padding: 30px;
+}
