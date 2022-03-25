@@ -1,0 +1,92 @@
+@import 'variables';
+.c-plans-hero {
+    font-family: $font-primary;
+    padding-top: 40px;
+
+    @media (min-width: $lg) {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @media (min-width: $md) {
+        padding-top: 80px;
+    }
+
+    &__wrapper {
+        @media (min-width: $md) {
+            display: flex;
+        }
+    }
+
+    &__titles {
+        text-align: center;
+        @media (min-width: $md) {
+            text-align: left;
+            flex-basis: 65%;
+        }
+        &-title {
+            font-size: rem(28);
+            line-height: rem(33);
+            font-weight: $font-bold;
+            margin-bottom: 25px;
+            @media (min-width: $md) {
+                font-size: rem(52);
+                line-height: rem(63);
+                margin-bottom: 56px;
+            }
+            span {
+                color: $color-purple;
+            }
+        }
+    }
+
+    &__text {
+        margin-top: 25px;
+        font-size: rem(15);
+        line-height: rem(18);
+        @media (min-width: $md) {
+            font-size: rem(20);
+            line-height: rem(25);
+            margin-bottom: 56px;
+        }
+    }
+
+    &__img {
+        img {
+            height: 285px;
+            width: 285px;
+        }
+        @media (min-width: $md) {
+            display: none;
+        }
+    }
+    &__desk-img {
+        @media (max-width: $max-sm) {
+            display: none;
+        }
+        img {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        @media (min-width: $md) {
+            flex-basis: 35%;
+        }
+    }
+
+    &__download {
+        margin-top: 40px;
+    
+        a {
+            &:nth-child(1) {
+                margin-right: 30px;
+            }
+        }
+    }
+
+    .c-hero__button {
+        margin-top: 30px;
+    }
+    
+}

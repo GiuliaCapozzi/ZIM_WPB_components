@@ -1,0 +1,53 @@
+@import 'variables';
+.o-team-card__container {
+    background-color: $color-light-gray-bg;
+    padding: 50px 30px;
+
+    @media (min-width: $lg) {
+        padding: 80px;
+    }
+}
+.c-team-card {
+    background: rgba(178, 157, 213, 0.2);
+    text-align: center;
+    font-family: $font-primary;
+    padding: 0 13px 20px 13px;
+    margin-top: 85px;
+    img {
+        width: 100%;
+        max-width: 100%;
+        object-fit: cover;
+        margin-top: -60px;
+    }
+    &__text-container {
+        margin-top: -20px;
+    }
+    &__name {
+        font-size: rem(14);
+        line-height: rem(22);
+        font-weight: $font-bold;
+        margin-bottom: 10px;
+
+        @media (min-width: $md) {
+            font-size: rem(25);
+            line-height: rem(40);
+        }
+    }
+    &__role {
+        font-size: rem(12);
+        line-height: rem(13);
+        margin-bottom: 10px;
+        @media (min-width: $md) {
+            font-size: rem(16);
+            line-height: rem(24);
+        }
+    }
+    &__text {
+        font-size: rem(12);
+        line-height: rem(13);
+        @media (min-width: $md) {
+            font-size: rem(15);
+            line-height: rem(24);
+        }
+    }
+}

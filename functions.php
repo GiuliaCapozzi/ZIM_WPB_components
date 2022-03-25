@@ -14,6 +14,35 @@ function functions_js(){
 
 add_action('wp_enqueue_scripts', 'functions_js');
 
+//incluir owl-carousel.js
+
+function owl_js(){
+
+	wp_enqueue_script('owl_js',
+					  get_stylesheet_directory_uri().'/js/owl.carousel.min.js',
+					  array('jquery'),
+					  '1.0.0',
+					  true
+					);
+
+}
+
+add_action('wp_enqueue_scripts', 'owl_js');
+
+//owl carousel enqueue scripts and styles:
+
+function css_owl(){
+
+	wp_enqueue_script('css_owl',
+	get_stylesheet_directory_uri().'/css/owl.carousel.min.css',
+	array(),
+	'1.0.0',
+	true	
+		);
+}
+
+add_action('wp_enqueue_scripts', 'css_owl');
+
 /* Custom functions code goes here. */
 add_shortcode('get_info', 'obtener_info');
 
@@ -76,7 +105,13 @@ function obtener_info($atts) {
                             <tr>
                               <td>'.$data[$j]->name.'</td>
                               <td>'.$data[$j]->data.' '.$data[$j]->data_unit.'</td>
-                              <td>'.$data[$j]->price_gbp.' GBP</td>
+                              <td>                              
+                                <select>
+                                    <option>'.$data[$j]->price_gbp.' GBP</option>
+                                    <option>'.$data[$j]->price_usd.' USD</option>
+                                    <option>'.$data[$j]->price_eur.' €</option>
+                                </select>
+                              </td>
                             </tr>
                         </tbody>';
             }

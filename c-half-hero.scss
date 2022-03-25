@@ -1,0 +1,43 @@
+@import 'variables';
+
+.c-half-hero {
+    img {
+        width:100%;
+        max-width: 100%;
+    }
+    &__titles {        
+        text-align: center;
+        padding: 46px 33px;
+    }
+    &__title {
+        font-family: $font-primary;
+        font-size: rem(28);
+        line-height: rem(34);
+        font-weight: $font-bold;
+        span {
+            color: $color-purple;
+            @media (max-width: $max-sm) {
+                display: block;
+            }
+        }
+
+        @media (min-width: $md) {
+            font-size: rem(52);
+            line-height: rem(63);
+            margin-bottom: 47px;
+        }
+    }
+    &__subtitle {
+        font-size: rem(15);
+        line-height: rem(19);
+        font-family: $font-primary;
+
+        @media (min-width: $md) {
+            font-size: rem(18);
+            line-height: rem(22);
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}

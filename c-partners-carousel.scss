@@ -1,0 +1,89 @@
+@import 'variables';
+.c-partners-carousel {
+    background-color: $color-light-gray-bg;
+    padding: 45px 20px;
+    font-family: $font-primary;
+    &__title {
+        text-align: center;
+        font-weight: $font-bold;
+        font-size: rem(18);
+        line-height: rem(22);
+        margin-bottom: 40px;
+
+        @media (min-width: $md) {
+            font-size: rem(22);
+            line-height: rem(26);
+        }
+    }
+
+    .c-title{
+        margin-bottom: 40px;
+    }
+
+    &__carousel {
+        .owl-carousel img {
+            height: 40px;
+        }
+    }
+}
+
+.c-map-info {
+    font-family: $font-primary;
+    margin-top: 4px;
+    font-size: rem(12);
+    line-height: rem(22);
+    @media (min-width: $md) {
+        font-size: rem(15);
+        line-height: rem(26);
+    }
+    .c-title {
+        margin-bottom: 20px;
+        &--mobile {
+            display: none;
+        }
+        @media (min-width: $md) {
+            display: none;
+            margin-left: 0;
+            margin-right: 0;
+            text-align: left;
+            &--mobile {
+                display: block;
+            }
+        }
+    }
+
+    &__wrapper {
+        @media (min-width: $md) {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+        }
+    }
+
+    &__info {
+        @media (min-width: $md) {
+            flex-basis: 50%;
+        }
+    }
+    &__map {
+        @media (min-width: $md) {
+            flex-basis: 50%;
+        }
+    }
+
+    &__info-office {
+        text-align: center;
+        margin-top: 24px;
+        @media (min-width: $md) {
+            text-align: left;
+        }
+        &-title {
+            font-weight: $font-bold;
+        }
+        &-address {
+            span {
+                display: block;
+            }
+        }
+    }
+}

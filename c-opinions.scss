@@ -1,0 +1,90 @@
+$font-primary: 'Montserrat', sans-serif;
+//colors
+$color-black: #000;
+$color-white: #fff;
+$color-light-gray: #425466;
+$color-purple: #3F0A72;
+$color-gray-bg : #F7F7F9;
+$color-light-violet: #ECE7F3;
+//font weights
+$font-bold: 700;
+//shadow
+$box-shadow: 0px 0px 1px rgba(12, 26, 75, 0.24), 0px 3px 8px -1px rgba(50, 50, 71, 0.05);
+
+//functions and mixins
+@function rem($value) {
+    $remValue: ($value / 16) + rem; 
+    @return $remValue;
+}
+
+//breakpoints
+$max-sm: 767px;
+$md: 768px;
+$lg: 1200px;
+$xl: 1600px;
+
+.c-opinion {
+    @media (min-width: $md) {
+        &__logo {
+            padding: 0 20px;
+        }
+        &__wrapper {
+            width: 90%;
+        }
+    }
+    @media (max-width: $max-sm) {
+        margin-bottom: 20px;
+    }
+    &__logo {
+        margin-bottom: 16px;
+        @media (max-width: $max-sm) {
+            text-align: center;
+        }
+    }
+    &__text {
+        margin-bottom: 18px;
+    }
+    &__author {
+        display: flex;
+        align-items: center;
+        @media (max-width: $max-sm) {
+            justify-content: center;
+        }
+
+        p {
+            margin-bottom: 0;
+            margin-left: 18px;
+            font-size: rem(16);
+            line-height: rem(28);
+            color: $color-purple;
+            font-weight: $font-bold;
+        }
+    }
+
+    @media (min-width: $md) {
+        &--logo-right {
+            .c-opinion__logo {
+                text-align: right;
+            }
+            .c-opinion__text {
+                text-align: right;
+            }
+        }
+        &--logo-center {
+            .c-opinion__logo {
+                text-align: center;
+            }
+            .c-opinion__text {
+                text-align: center;
+            }
+        }
+        &--logo-left {
+            .c-opinion__logo {
+                text-align: left;
+            }
+            .c-opinion__text {
+                text-align: left;
+            }
+        }
+    }
+}

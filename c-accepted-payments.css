@@ -1,0 +1,30 @@
+.c-accepted-payments {
+  background-color: #F4F5F7;
+  padding: 42px;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+@media (min-width: 1200px) {
+  .c-accepted-payments {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.c-accepted-payments__title {
+  font-size: 1.125rem;
+  margin-bottom: 30px;
+}
+@media (min-width: 768px) {
+  .c-accepted-payments__title {
+    font-size: 1.25rem;
+    margin: 0;
+    align-self: center;
+  }
+}
+@media (min-width: 768px) {
+  .c-accepted-payments__wrapper {
+    display: flex;
+    justify-content: space-around;
+  }
+}

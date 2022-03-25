@@ -1,0 +1,90 @@
+.c-plans-hero {
+  font-family: "Montserrat", sans-serif;
+  padding-top: 40px;
+}
+@media (min-width: 1200px) {
+  .c-plans-hero {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 768px) {
+  .c-plans-hero {
+    padding-top: 80px;
+  }
+}
+@media (min-width: 768px) {
+  .c-plans-hero__wrapper {
+    display: flex;
+  }
+}
+.c-plans-hero__titles {
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .c-plans-hero__titles {
+    text-align: left;
+    flex-basis: 65%;
+  }
+}
+.c-plans-hero__titles-title {
+  font-size: 1.75rem;
+  line-height: 2.0625rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+@media (min-width: 768px) {
+  .c-plans-hero__titles-title {
+    font-size: 3.25rem;
+    line-height: 3.9375rem;
+    margin-bottom: 56px;
+  }
+}
+.c-plans-hero__titles-title span {
+  color: #3F0A72;
+}
+.c-plans-hero__text {
+  margin-top: 25px;
+  font-size: 0.9375rem;
+  line-height: 1.125rem;
+}
+@media (min-width: 768px) {
+  .c-plans-hero__text {
+    font-size: 1.25rem;
+    line-height: 1.5625rem;
+    margin-bottom: 56px;
+  }
+}
+.c-plans-hero__img img {
+  height: 285px;
+  width: 285px;
+}
+@media (min-width: 768px) {
+  .c-plans-hero__img {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .c-plans-hero__desk-img {
+    display: none;
+  }
+}
+.c-plans-hero__desk-img img {
+  width: 100%;
+  max-width: 100%;
+}
+@media (min-width: 768px) {
+  .c-plans-hero__desk-img {
+    flex-basis: 35%;
+  }
+}
+.c-plans-hero__download {
+  margin-top: 40px;
+}
+.c-plans-hero__download a:nth-child(1) {
+  margin-right: 30px;
+}
+.c-plans-hero .c-hero__button {
+  margin-top: 30px;
+}

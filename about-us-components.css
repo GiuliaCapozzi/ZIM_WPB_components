@@ -1,0 +1,10 @@
+.c-half-hero img {
+  width: 100%;
+  max-width: 100%;
+}
+.c-half-hero__title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.75rem;
+  line-height: 2.125rem;
+  padding: 20p 15px;
+}

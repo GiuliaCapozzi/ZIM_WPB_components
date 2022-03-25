@@ -1,0 +1,43 @@
+.c-half-hero img {
+  width: 100%;
+  max-width: 100%;
+}
+.c-half-hero__titles {
+  text-align: center;
+  padding: 46px 33px;
+}
+.c-half-hero__title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.75rem;
+  line-height: 2.125rem;
+  font-weight: 700;
+}
+.c-half-hero__title span {
+  color: #3F0A72;
+}
+@media (max-width: 767px) {
+  .c-half-hero__title span {
+    display: block;
+  }
+}
+@media (min-width: 768px) {
+  .c-half-hero__title {
+    font-size: 3.25rem;
+    line-height: 3.9375rem;
+    margin-bottom: 47px;
+  }
+}
+.c-half-hero__subtitle {
+  font-size: 0.9375rem;
+  line-height: 1.1875rem;
+  font-family: "Montserrat", sans-serif;
+}
+@media (min-width: 768px) {
+  .c-half-hero__subtitle {
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
