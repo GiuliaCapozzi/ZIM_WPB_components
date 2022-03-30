@@ -1,0 +1,35 @@
+.c-button {
+  border-radius: 4px;
+}
+.c-button--primary {
+  background-color: #3F0A72;
+  color: #fff;
+  font-weight: 600;
+}
+.c-button:hover {
+  text-decoration: none;
+}
+.c-button--secondary {
+  background-color: #ECE7F3;
+  color: #3F0A72;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.c-button--secondary:hover {
+  background-color: #3F0A72;
+  color: #fff;
+}
+.c-button--sm {
+  font-size: 0.5rem;
+  font-family: "Montserrat", sans-serif;
+  padding: 5px 10px;
+}
+@media (min-width: 768px) {
+  .c-button--sm {
+    font-size: 0.75rem;
+  }
+}
+.c-button--sm:hover {
+  background-color: #fff;
+  color: #3F0A72;
+}

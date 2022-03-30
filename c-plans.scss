@@ -1,0 +1,248 @@
+@import 'variables';
+.c-plans {
+    padding: 40px 0;
+    background-color: $color-dark-white-bg;
+    font-family: $font-primary;
+    &__nav {
+        display: flex;
+        justify-content: space-around;
+        gap: 1rem;
+        margin-top: 40px;
+
+        @media (min-width: $md) {
+            width: 90%;
+            margin: 30px auto;
+        }
+
+        a {
+            padding: 0 16px 16px 16px;
+            color: $color-black;
+            border-bottom: 1px solid $color-super-light-gray;
+            font-size: rem(15);
+            line-height: rem(18);
+            @media (min-width: $md) {
+                font-size: rem(18);
+                line-height: rem(22);
+                width: 30%;
+                text-align: center;
+            }
+            &.active {
+                font-weight: $font-bold;
+                border-bottom: 2px solid $color-purple;
+            }
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &__subnav {
+        background-color: rgba(228, 231, 236, 0.4);
+        border-radius: 8px;
+        padding: 11px;
+        text-align: center;
+        margin-bottom: 40px;
+        width: 90%;
+        position: relative;
+        left: 5%;
+
+        @media (min-width: $md) {
+            width: 80%;
+            left: 10%;
+        }
+
+        a {
+            margin-right: 10px;
+            font-size: rem(12);
+            line-height: rem(15);
+            color: $color-lighter-black;
+            &:nth-last-of-type(1) {
+                margin-right: 0;
+            }
+            @media (min-width: $md) {
+                font-size: rem(15);
+                line-height: rem(24);
+            }
+            &.active {
+                color: $color-purple;
+                font-weight: $font-bold;
+                position: relative;
+                &::after {
+                    content: '';
+                    position: absolute;
+                    height: 2px;
+                    background-color: $color-purple;
+                    bottom: -10px;
+                    width: 50%;
+                    left: 25%;
+                }
+            }
+        }
+    }
+
+    &__tabs {
+        display: none;
+        &.visible {
+            display: block;
+        }
+        .c-title {
+            @media (max-width: $max-md) {
+                display: none;
+            }
+        }
+        margin-top: 40px;
+        @media (min-width: $lg) {
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        &-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            .c-plans-card {
+                flex-basis: 40%;
+                margin: 10px;
+                @media (min-width: $md) {
+                    flex-basis: 27%;
+                }
+            }
+        }        
+    }
+}
+
+
+.c-plans-card {
+    background-color: $color-white;
+    border-radius: 8px;
+    font-family: $font-primary;
+    padding: 10px;
+    box-shadow: $box-shadow;
+    @media (min-width: $md) {
+        margin-bottom: 28px;
+    }
+    &__top {
+        background-color: $color-light-purple;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 30px 30px 10px 30px;
+    }
+    &__text {
+        margin-top: 10px;
+        padding: 10px;
+    }
+    &__title {
+        font-size: rem(18);
+        font-weight: $font-bold;
+        margin-bottom: 17px;
+        @media (min-width: $md) {
+            font-size: rem(21);
+        }
+    }
+    &__logo {
+        margin-bottom: 0;
+    }
+    &__duration {
+        font-size: rem(8);
+        color: $color-light-gray;
+        @media (min-width: $md) {
+            font-size: rem(12);
+        }
+    }
+    &__price {
+        color: $color-light-black;
+        font-size: rem(12);
+        font-weight: $font-bold;
+        @media (min-width: $md) {
+            font-size: rem(14);
+        }
+    }
+    &__buttons {
+       a {
+           margin-right: 3px;
+           @media (min-width: $md) {
+               margin-right: 10px;
+           }
+       }
+    }
+}
+
+.c-plans-carousel {
+    position: relative;
+    width: 80%;
+    left: 10%;
+    display: none;
+    &.visible {
+        display: block;
+    }
+    .owl-dots {
+        text-align: center;
+        margin-top: 24px;
+        margin-bottom: 24px;
+        display: flex;
+        justify-content: center;
+        width: 60% !important;
+        margin-left: auto;
+        margin-right: auto;
+
+        @media (min-width: $md) {
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+
+        .owl-dot:nth-child(1) {
+            margin-right: 12px;
+        }
+
+        .owl-dot span {
+            width: 14px;
+            height: 14px;
+            display: inline-block;
+            background-color: $color-light-violet;
+            border-radius: 50%;
+        }
+        .owl-dot.active span{
+            background-color: $color-purple !important;
+            border-color: $color-purple !important;
+            color: $color-purple !important;
+        }
+    }
+}
+.c-plans-carousel-card {
+    border-radius: 9px;
+    font-family: $font-primary;
+    figure {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        position: relative;
+        img {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+        }
+    }
+    &__title {
+        margin-bottom: 0;
+        position: absolute;
+        bottom: 8%;
+        left: 12%;
+        width: 70%;
+        font-weight: $font-bold;
+        color: $color-white;
+        background-color: $color-purple;
+        padding: 3px;
+        border-radius: 0px 6px 6px 0px;
+        font-size: rem(10);
+        line-height: rem(12);
+
+        @media (min-width: $md) {
+            font-size: rem(14);
+            line-height: rem(18);
+            left: 3%;
+        }
+    }    
+}

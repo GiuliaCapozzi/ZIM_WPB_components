@@ -187,20 +187,6 @@ crossorigin="anonymous"></script>
         }
     }
 })
-const input = document.getElementsByClassName('js-input-acordeon');
-const tab = document.getElementsByClassName('js-acordeon-tab');
-
-function openTab(input,tab) {
-    for(let i = 0; i < input.length; i++) {
-        input[i].onchange=function() {
-            for(let k = 0; k < tab.length; k++) {
-                tab[k].classList.remove('active');
-            }
-            tab[i].classList.add('active');
-        }
-    }
-}
-openTab(input,tab);
 </script>
 </body>
 </html>

@@ -1,0 +1,34 @@
+@import 'variables';
+.c-button {
+    border-radius: 4px;
+    &--primary {
+        background-color: $color-purple;
+        color: $color-white;
+        font-weight: 600;
+    }
+    &:hover {
+        text-decoration: none;
+    }
+    &--secondary {
+        background-color: $color-light-violet;
+        color: $color-purple;
+        font-weight: 600;
+        transition: all .3s ease;
+        &:hover {
+            background-color: $color-purple;
+            color: $color-white;
+        }
+    }
+    &--sm {
+        font-size: rem(8);
+        font-family: $font-primary;
+        padding: 5px 10px;
+        @media (min-width: $md) {
+            font-size: rem(12);
+        }
+        &:hover {
+            background-color: $color-white;
+            color: $color-purple;
+        }
+    }
+}
