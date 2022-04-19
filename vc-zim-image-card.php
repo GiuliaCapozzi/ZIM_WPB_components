@@ -41,7 +41,16 @@ if ( ! class_exists( 'vcZimImageCard' ) ) {
                         'heading'       => __( 'Title', 'sodawebmedia' ),
                         'param_name'    => 'card-title',
                         'value'         => __( '', 'sodawebmedia' ),
-                        'description'   => __( 'Add Author Quote.', 'sodawebmedia' ),
+                        'description'   => __( 'Add section title', 'sodawebmedia' ),
+                    ),
+
+                    array(
+                        'type'          => 'textfield',
+                        'holder'        => 'div',
+                        'heading'       => __( 'Text', 'sodawebmedia' ),
+                        'param_name'    => 'card-text',
+                        'value'         => __( '', 'sodawebmedia' ),
+                        'description'   => __( 'Add the text parraph', 'sodawebmedia' ),
                     ),
 
 
@@ -78,6 +87,7 @@ if ( ! class_exists( 'vcZimImageCard' ) ) {
         public function render_shortcode_two( $atts, $content, $tag ) {
             $atts = (shortcode_atts(array(
                 'card-title'      => '',
+                'card-text' => '',
                 'card-image'             => '',
                 'extra_class'       => '',
                 'element_id'        => ''
@@ -86,6 +96,7 @@ if ( ! class_exists( 'vcZimImageCard' ) ) {
 
             //Content 
             $card_title       = esc_attr($atts['card-title']);
+            $card_text = esc_attr($atts['card-text']);
             $img_card     =  esc_attr($atts['card-image']);
             $img = wpb_getImageBySize( array(
 				'attach_id' => (int) $img_card,
@@ -97,14 +108,23 @@ if ( ! class_exists( 'vcZimImageCard' ) ) {
             $element_id         = esc_attr($atts['element_id']); 
             
             $output = '
-            <div class="c-image-card">
-            <div class="c-image-card__wrapper">
-                <figure>
-                    '.$img['thumbnail'].'
-                </figure>
-                <p class="c-image-card__title">'.$card_title.'</p>            
-            </div>
-            </div>  
+                <div class="c-img-text">
+                <div class="c-img-text__wrapper">
+                    <div class="c-img-text__titles">
+                        <p class="c-img-text__title">'.$card_title.'</p>
+                        <div class="c-img-text__mobile-img">
+                            '.$img['thumbnail'].'
+                        </div>
+                        <p class="c-img-text__subtitle">
+                                '.$card_text.'
+                        </p>
+
+                    </div>
+                    <div class="c-img-text__image">
+                        '.$img['thumbnail'].'
+                    </div>
+                </div>
+            </div>   
             ';
 
             return $output;

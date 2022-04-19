@@ -1,0 +1,105 @@
+@import 'variables';
+.c-download-slider {
+    font-family: $font-primary;
+    @media (min-width: $md) {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .owl-carousel figure {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        img {
+            width: 233px;
+            max-width: 100%;
+            margin: 0 auto;
+            display: block;
+            @media (min-width: $md) {
+                width: 100%;
+            }
+            @media (min-width: $lg) {
+                width: 300px;
+            }
+        }
+    }
+    @media (min-width: $md) {
+        .c-title {
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+            text-align: left;
+        }
+    }
+    &__subtitle {
+        font-size: rem(12);
+        line-height: rem(18);
+        text-align: center;
+        @media (max-width: $max-sm) {
+            padding: 15px;
+        }
+        @media (min-width: $md) {
+            text-align: left;
+            font-size: rem(15);
+            line-height: rem(20);
+        }
+    }
+    &__wrapper {
+        @media (min-width: $md) {
+            display: flex;
+        }
+    }
+    @media (min-width: $md) {
+        &__texts {
+            width: 60%;
+            display: inline-block;
+            align-self: center;
+            padding-right: 10%;
+        }
+        &__images {
+            width: 38%;
+            display: inline-block;
+        }
+    }
+    &__step-carousel {
+        @media (min-width: $md) {
+            margin-top: 30px;
+        }
+    }
+}
+.c-step-card {
+    font-family: $font-primary;
+    &__title {
+        text-transform: uppercase;
+        color: $color-purple;
+        font-size: rem(15);
+        font-weight: $font-bold;
+        text-align: center;   
+        @media (min-width: $md) {
+            text-align: left;
+            padding-left: 15px;
+        }
+    }
+    &__card {
+        margin-bottom: 33px;
+        box-shadow: $box-shadow-super-light;
+        border-radius: 10px;
+        background-color: $color-white;
+        padding: 20px;
+        width: 80%;
+        @media (max-width: $max-sm) {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        &-title {
+            font-weight: $font-bold;
+            font-size: rem(12);
+            line-height: rem(17);
+        }
+        &-txt {
+            color: $color-light-gray;
+            font-size: rem(12);
+            line-height: rem(18);
+        }
+    }
+}

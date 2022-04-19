@@ -1,0 +1,220 @@
+.c-support-card {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  background-color: #ECE7F3;
+  height: 68px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+@media (min-width: 768px) {
+  .c-support-card {
+    height: 152px;
+  }
+}
+.c-support-card:hover {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid #3F0A72;
+}
+.c-support-card__text {
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  margin-bottom: 0;
+}
+@media (min-width: 768px) {
+  .c-support-card__text {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+}
+.c-support-card.active {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid #3F0A72;
+}
+
+.c-support-block {
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  background-color: #fff;
+  border: 1px solid #B29DD5;
+  border-radius: 5px;
+  height: 52px;
+}
+@media (min-width: 768px) {
+  .c-support-block {
+    height: 72px;
+  }
+}
+.c-support-block button {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+.c-support-block__wrapper {
+  height: 100%;
+}
+@media (min-width: 768px) {
+  .c-support-block__wrapper {
+    display: flex;
+    align-items: center;
+  }
+}
+.c-support-block__text {
+  font-size: 0.875rem;
+  line-height: 1.125rem !important;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+@media (min-width: 768px) {
+  .c-support-block__text {
+    font-size: 1.125rem;
+    line-height: 2.5rem;
+  }
+}
+.c-support-block__text span {
+  padding: 15px 12px;
+}
+.c-support-block__text span:nth-of-type(1) {
+  border-right: 1px solid #B29DD5;
+  width: 90%;
+  text-align: left;
+}
+@media (min-width: 768px) {
+  .c-support-block__text span:nth-of-type(2) {
+    position: relative;
+    right: 2.5%;
+  }
+}
+@media (min-width: 768px) {
+  .c-support-block__text span {
+    line-height: 40px;
+  }
+}
+.c-support-block__icon {
+  position: relative;
+  right: 0;
+}
+@media (min-width: 768px) {
+  .c-support-block__icon {
+    right: 3%;
+  }
+}
+.c-support-block__answer {
+  padding: 15px;
+  display: none;
+}
+.c-support-block__answer p {
+  font-size: 0.625rem;
+  line-height: 0.875rem;
+}
+@media (min-width: 768px) {
+  .c-support-block__answer p {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
+}
+.c-support-block.selected {
+  background-color: #F4F5F7;
+  height: auto;
+}
+.c-support-block.selected .c-support-block__answer {
+  display: block;
+  -webkit-animation: fadein 1s;
+  /* Safari, Chrome and Opera > 12.1 */
+  /* Firefox < 16 */
+  /* Internet Explorer */
+  /* Opera < 12.1 */
+  animation: fadein 1s;
+}
+.c-support-block.selected .c-support-block__wrapper {
+  border-bottom: 1px solid #B29DD5;
+  height: 52px;
+}
+@media (min-width: 768px) {
+  .c-support-block.selected .c-support-block__wrapper {
+    height: 72px;
+  }
+}
+.c-support-block.selected .c-support-block__icon {
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.c-support-block.selected .rotate-icon {
+  transform: rotate(90deg);
+}
+
+@media (min-width: 768px) {
+  .c-faqs {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.c-faqs__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.c-faqs__nav .c-support-card {
+  flex-basis: 21%;
+  margin: 5px;
+}
+@media (min-width: 768px) {
+  .c-faqs__nav .c-support-card {
+    flex-basis: 15%;
+  }
+}
+.c-faqs__tabs {
+  margin-top: 40px;
+}
+@media (min-width: 768px) {
+  .c-faqs__tabs {
+    margin-top: 80px;
+  }
+}
+.c-faqs__tabs .c-title {
+  margin-bottom: 40px;
+}
+.c-faqs__tabs .c-title .c-support-card__text {
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+}
+@media (min-width: 768px) {
+  .c-faqs__tabs .c-title .c-support-card__text {
+    font-size: 2rem;
+    line-height: 2.4375rem;
+  }
+}
+.c-faqs__tab {
+  display: none;
+  padding: 15px;
+}
+.c-faqs__tab .c-support-block {
+  margin-bottom: 15px;
+}
+.c-faqs__tab.visible {
+  display: block;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Firefox < 16 */
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Internet Explorer */
+/* Opera < 12.1 */

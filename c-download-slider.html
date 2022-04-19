@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="c-plans.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="owl.carousel.min.css" >
+    <link rel="stylesheet" href="c-support.css" >
+    <link rel="stylesheet" href="c-contact-form.css" >
+    <link rel="stylesheet" href="c-download-slider.css" >
+    <title>Download slider component</title>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="c-download-slider">
+                <div class="c-download-slider__wrapper">
+                    <div class="c-download-slider__texts">
+                        <p class="c-download-slider__title c-title"><span class="c-title__title">Being connected when abroad has never been easier</span></p>
+                        <p class="c-download-slider__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                        <div class="c-download-slider__step-carousel">
+                            <div class="owl-carousel owl-theme js-steps-carousel">
+                                <div class="item">
+                                    <div class="c-step-card">
+                                        <div class="c-step-card__wrapper">
+                                            <p class="c-step-card__title">Step 1</p>
+                                            <div class="c-step-card__card">
+                                                <p class="c-step-card__card-title">Compare plans</p>
+                                                <p class="c-step-card__card-txt">Compare our offering of eSIM plans, covering 100+ countries. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="c-step-card">
+                                        <div class="c-step-card__wrapper">
+                                            <p class="c-step-card__title">Step 2</p>
+                                            <div class="c-step-card__card">
+                                                <p class="c-step-card__card-title">Compare plans</p>
+                                                <p class="c-step-card__card-txt">Compare our offering of eSIM plans, covering 100+ countries. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="c-step-card">
+                                        <div class="c-step-card__wrapper">
+                                            <p class="c-step-card__title">Step 3</p>
+                                            <div class="c-step-card__card">
+                                                <p class="c-step-card__card-title">Compare plans</p>
+                                                <p class="c-step-card__card-txt">Compare our offering of eSIM plans, covering 100+ countries. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-download-slider__images">
+                        <div class="c-images-carousel">
+                            <div class="owl-carousel owl-theme js-steps-carousel">
+                                <div class="item">
+                                    <figure>
+                                        <img src="step-1-app.png" alt="">
+                                    </figure>
+                                </div>
+                                <div class="item">
+                                    <figure>
+                                        <img src="step-2-app.png" alt="">
+                                    </figure>
+                                </div>
+                                <div class="item">
+                                    <figure>
+                                        <img src="step-3-app.png" alt="">
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script
+                  src="https://code.jquery.com/jquery-3.6.0.min.js"
+                  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                  crossorigin="anonymous"></script>
+<script src="owl.carousel.min.js"></script>
+<script>
+    $('.js-steps-carousel').owlCarousel({
+    merge: false,
+    loop:true,
+    nav:false,
+    dots: false,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    touchDrag: false,
+    mouseDrag: false,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:1
+        },
+        1000:{
+            items:1
+        }
+    }
+})
+</script>
+</body>
+</html>

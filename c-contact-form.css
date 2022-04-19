@@ -1,0 +1,44 @@
+.c-contact-form {
+  padding-top: 60px;
+  border-top: 1px solid #B29DD5;
+  font-family: "Montserrat", sans-serif;
+}
+.c-contact-form__options {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 1200px) {
+  .c-contact-form__options {
+    width: 50%;
+  }
+}
+.c-contact-form__options label {
+  color: #545569;
+  font-size: 0.75rem;
+}
+@media (min-width: 768px) {
+  .c-contact-form__options label {
+    font-size: 1.125rem;
+  }
+}
+.c-contact-form__forms {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+}
+@media (min-width: 768px) {
+  .c-contact-form__forms {
+    width: 50%;
+  }
+}
+.c-contact-form__forms-tab {
+  display: none;
+}
+.c-contact-form__forms-tab.visible {
+  display: block;
+}

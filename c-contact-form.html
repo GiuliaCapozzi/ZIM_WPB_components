@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="c-plans.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="owl.carousel.min.css" >
+    <link rel="stylesheet" href="c-support.css" >
+    <link rel="stylesheet" href="c-contact-form.css" >
+    <title>Contact form wrapper</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="c-contact-form">
+                    <div class="c-title">
+                        <div class="c-title__title">Contact form</div>
+                    </div>
+                    <nav class="c-contact-form__options">
+                        <div>
+                            <input type="radio" class="c-compatibility__acordeon-input js-form-acordeon selected" id="contactChoice1"
+                            name="contact" value="email" checked="" data-tab="customer">
+                            <label for="contactChoice1">Customer</label></div>
+    
+                            <div><input type="radio" class="c-compatibility__acordeon-input js-form-acordeon" id="contactChoice2"
+                            name="contact" value="phone" data-tab="partner">
+                            <label for="contactChoice2">Partner</label>
+                        </div>
+                    </nav>
+                    <div class="c-contact-form__forms">
+                        <div class="c-contact-form__forms-tab js-form-tab visible" data-tab="customer">
+                            [CUSTOMER FORM SHORTCODE]
+                        </div>
+                        <div class="c-contact-form__forms-tab js-form-tab" data-tab="partner">
+                            [PARTNERS FORM SHORTCODE]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const openAreaInput = function(areaButton,areaTab) {
+            for(let i = 0; i < areaButton.length; i++) {
+                areaButton[i].onchange=function() {
+                    let dataTabB = areaButton[i].getAttribute('data-tab');
+                    console.log(dataTabB);
+
+                    for(let k = 0; k < areaTab.length; k++) {
+                        let dataTabO = areaTab[k].getAttribute('data-tab');
+
+                        if(dataTabB == dataTabO) {
+                            for(z = 0; z < areaTab.length; z++) {
+                                areaTab[z].classList.remove('visible');
+                                areaButton[z].classList.remove('active');
+                            }
+                            areaTab[k].classList.add('visible');
+                            areaButton[i].classList.add('active');
+                        }
+                    }
+                }
+            }
+        }
+        const formRadio = document.getElementsByClassName('js-form-acordeon');
+        const formTab = document.getElementsByClassName('js-form-tab');
+        openAreaInput(formRadio,formTab);
+    </script>
+</body>
+</html>

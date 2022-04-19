@@ -24,11 +24,11 @@
             </div>
             <div class="c-plans__wrapper">
                 <nav class="c-plans__nav">
-                  <a href="#" class="js-area-button" data-tab="global" class="active">Global</a>  
+                  <a href="#" class="js-area-button active" data-tab="global">Global</a>  
                   <a href="#" class="js-area-button" data-tab="regional">Regional</a>  
                   <a href="#" class="js-area-button" data-tab="local">Local</a>  
                 </nav>
-                <div class="c-plans__tabs js-area-tab" data-tab="global">
+                <div class="c-plans__tabs js-area-tab visible" data-tab="global">
                     <div class="c-plans__tabs-wrapper">                        
                         <div class="c-plans-card">
                             <div class="c-plans-card__top">
@@ -124,14 +124,198 @@
                 </div>
                 <div class="c-plans__tabs js-area-tab" data-tab="regional">
                     <nav class="c-plans__subnav">
-                        <a href="#" class="active">Europe</a>
-                        <a href="#">USA</a>
-                        <a href="#">Asia Pacific</a>
+                        <a href="#" class="active js-regional-button" data-tab="europe-regional">Europe</a>
+                        <a href="#" class="js-regional-button" data-tab="usa-regional">USA</a>
+                        <a href="#" class="js-regional-button" data-tab="asia-pacific-regional">Asia Pacific</a>
                     </nav>
                     <div class="c-title">
-                        <h2 class="c-title__title">Available plans</h2>
+                        <h2 class="c-title__title">Available plans <span class="js-regional-name"></span></h2>
                     </div>
-                    <div class="c-plans__tabs-wrapper">                        
+                    <div class="c-plans__tabs-wrapper js-regional-tab" data-tab="europe-regional">                        
+                        <div class="c-plans-card">
+                            <div class="c-plans-card__top">
+                                <p class="c-plans-card__title">
+                                    20 GB
+                                </p>
+                                <p class="c-plans-card__logo">
+                                    <img src="logo-truphone--small.png" alt="">
+                                </p>
+                            </div>
+                            <div class="c-plans-card__text">
+                                <p class="c-plans-card__duration">4 weeks</p>
+                                <p class="c-plans-card__price">€ 20</p>
+                            </div>
+                            <div class="c-plans-card__buttons">
+                                <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                                <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                            </div>
+                        </div>
+                        <div class="c-plans-card">
+                            <div class="c-plans-card__top">
+                                <p class="c-plans-card__title">
+                                    20 GB
+                                </p>
+                                <p class="c-plans-card__logo">
+                                    <img src="logo-truphone--small.png" alt="">
+                                </p>
+                            </div>
+                            <div class="c-plans-card__text">
+                                <p class="c-plans-card__duration">4 weeks</p>
+                                <p class="c-plans-card__price">€ 20</p>
+                            </div>
+                            <div class="c-plans-card__buttons">
+                                <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                                <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                            </div>
+                        </div>
+                        <div class="c-plans-card">
+                            <div class="c-plans-card__top">
+                                <p class="c-plans-card__title">
+                                    20 GB
+                                </p>
+                                <p class="c-plans-card__logo">
+                                    <img src="logo-truphone--small.png" alt="">
+                                </p>
+                            </div>
+                            <div class="c-plans-card__text">
+                                <p class="c-plans-card__duration">4 weeks</p>
+                                <p class="c-plans-card__price">€ 20</p>
+                            </div>
+                            <div class="c-plans-card__buttons">
+                                <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                                <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                            </div>
+                        </div>
+                        <div class="c-plans-card">
+                            <div class="c-plans-card__top">
+                                <p class="c-plans-card__title">
+                                    20 GB
+                                </p>
+                                <p class="c-plans-card__logo">
+                                    <img src="logo-truphone--small.png" alt="">
+                                </p>
+                            </div>
+                            <div class="c-plans-card__text">
+                                <p class="c-plans-card__duration">4 weeks</p>
+                                <p class="c-plans-card__price">€ 20</p>
+                            </div>
+                            <div class="c-plans-card__buttons">
+                                <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                                <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                            </div>
+                        </div>
+                        <div class="c-plans-card">
+                            <div class="c-plans-card__top">
+                                <p class="c-plans-card__title">
+                                    20 GB
+                                </p>
+                                <p class="c-plans-card__logo">
+                                    <img src="logo-truphone--small.png" alt="">
+                                </p>
+                            </div>
+                            <div class="c-plans-card__text">
+                                <p class="c-plans-card__duration">4 weeks</p>
+                                <p class="c-plans-card__price">€ 20</p>
+                            </div>
+                            <div class="c-plans-card__buttons">
+                                <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                                <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-plans__tabs-wrapper js-regional-tab" data-tab="usa-regional">                        
+                        <div class="c-plans-card">
+                            <div class="c-plans-card__top">
+                                <p class="c-plans-card__title">
+                                    20 GB
+                                </p>
+                                <p class="c-plans-card__logo">
+                                    <img src="logo-truphone--small.png" alt="">
+                                </p>
+                            </div>
+                            <div class="c-plans-card__text">
+                                <p class="c-plans-card__duration">4 weeks</p>
+                                <p class="c-plans-card__price">€ 20</p>
+                            </div>
+                            <div class="c-plans-card__buttons">
+                                <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                                <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                            </div>
+                        </div>
+                        <div class="c-plans-card">
+                            <div class="c-plans-card__top">
+                                <p class="c-plans-card__title">
+                                    20 GB
+                                </p>
+                                <p class="c-plans-card__logo">
+                                    <img src="logo-truphone--small.png" alt="">
+                                </p>
+                            </div>
+                            <div class="c-plans-card__text">
+                                <p class="c-plans-card__duration">4 weeks</p>
+                                <p class="c-plans-card__price">€ 20</p>
+                            </div>
+                            <div class="c-plans-card__buttons">
+                                <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                                <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                            </div>
+                        </div>
+                        <div class="c-plans-card">
+                            <div class="c-plans-card__top">
+                                <p class="c-plans-card__title">
+                                    20 GB
+                                </p>
+                                <p class="c-plans-card__logo">
+                                    <img src="logo-truphone--small.png" alt="">
+                                </p>
+                            </div>
+                            <div class="c-plans-card__text">
+                                <p class="c-plans-card__duration">4 weeks</p>
+                                <p class="c-plans-card__price">€ 20</p>
+                            </div>
+                            <div class="c-plans-card__buttons">
+                                <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                                <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                            </div>
+                        </div>
+                        <div class="c-plans-card">
+                            <div class="c-plans-card__top">
+                                <p class="c-plans-card__title">
+                                    20 GB
+                                </p>
+                                <p class="c-plans-card__logo">
+                                    <img src="logo-truphone--small.png" alt="">
+                                </p>
+                            </div>
+                            <div class="c-plans-card__text">
+                                <p class="c-plans-card__duration">4 weeks</p>
+                                <p class="c-plans-card__price">€ 20</p>
+                            </div>
+                            <div class="c-plans-card__buttons">
+                                <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                                <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                            </div>
+                        </div>
+                        <div class="c-plans-card">
+                            <div class="c-plans-card__top">
+                                <p class="c-plans-card__title">
+                                    20 GB
+                                </p>
+                                <p class="c-plans-card__logo">
+                                    <img src="logo-truphone--small.png" alt="">
+                                </p>
+                            </div>
+                            <div class="c-plans-card__text">
+                                <p class="c-plans-card__duration">4 weeks</p>
+                                <p class="c-plans-card__price">€ 20</p>
+                            </div>
+                            <div class="c-plans-card__buttons">
+                                <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                                <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-plans__tabs-wrapper js-regional-tab" data-tab="asia-pacific-regional">                        
                         <div class="c-plans-card">
                             <div class="c-plans-card__top">
                                 <p class="c-plans-card__title">
@@ -224,16 +408,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="c-plans__tabs visible js-area-tab" data-tab="local">
+                <div class="c-plans__tabs js-area-tab" data-tab="local">
                     <nav class="c-plans__subnav">
-                        <a href="#" class="active" data-tab="europe">Europe</a>
-                        <a href="#" data-tab="america">America</a>
-                        <a href="#" data-tab="asia">Asia</a>
-                        <a href="#" data-tab="oceania">Oceania</a>
-                        <a href="#" data-tab="africa">Africa</a>
+                        <a href="#" class="js-local-button active" data-tab="europe">Europe</a>
+                        <a href="#" class="js-local-button" data-tab="america">America</a>
+                        <a href="#" class="js-local-button" data-tab="asia">Asia</a>
+                        <a href="#" class="js-local-button" data-tab="oceania">Oceania</a>
+                        <a href="#" class="js-local-button" data-tab="africa">Africa</a>
                     </nav>
                     <div class="c-plans__tabs-carousels">
-                        <div class="c-plans-carousel visible" data-tab="europe">
+                        <div class="c-plans-carousel js-local-tab visible" data-tab="europe">
                             <div class="c-plans-carousel__carousel">
                                 <div class="owl-carousel owl-theme js-plans-carousel">
                                     <a href="#" class="item">
@@ -296,7 +480,7 @@
                                 </div>
                             </div>
                         </div> 
-                        <div class="c-plans-carousel" data-tab="america">
+                        <div class="c-plans-carousel js-local-tab" data-tab="america">
                             <div class="c-plans-carousel__carousel">
                                 <div class="owl-carousel owl-theme js-plans-carousel">
                                     <a href="#" class="item">
@@ -359,7 +543,7 @@
                                 </div>
                             </div>
                         </div> 
-                        <div class="c-plans-carousel" data-tab="asia">
+                        <div class="c-plans-carousel js-local-tab" data-tab="asia">
                             <div class="c-plans-carousel__carousel">
                                 <div class="owl-carousel owl-theme js-plans-carousel">
                                     <a href="#" class="item">
@@ -422,7 +606,7 @@
                                 </div>
                             </div>
                         </div>  
-                        <div class="c-plans-carousel" data-tab="oceania">
+                        <div class="c-plans-carousel js-local-tab" data-tab="oceania">
                             <div class="c-plans-carousel__carousel">
                                 <div class="owl-carousel owl-theme js-plans-carousel">
                                     <a href="#" class="item">
@@ -485,7 +669,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="c-plans-carousel" data-tab="africa">
+                        <div class="c-plans-carousel js-local-tab" data-tab="africa">
                             <div class="c-plans-carousel__carousel">
                                 <div class="owl-carousel owl-theme js-plans-carousel">
                                     <a href="#" class="item">
@@ -550,7 +734,7 @@
                         </div>     
                     </div>                 
                     <div class="c-title">
-                        <h2 class="c-title__title">Available plans</h2>
+                        <h2 class="c-title__title">Available plans <span class="js-local-name"></span></h2>
                     </div>
                     <div class="c-plans__tabs-wrapper">                        
                         <div class="c-plans-card">
@@ -672,13 +856,16 @@
     }
 })
 
-const openArea = function() {
-    const areaButton = document.getElementsByClassName('js-area-button');
-    const areaTab = document.getElementsByClassName('js-area-tab');
+const openArea = function(areaButton,areaTab,inner,innerClass) {
     for(let i = 0; i < areaButton.length; i++) {
         areaButton[i].onclick=function(e) {
             e.preventDefault();
             let dataTabB = areaButton[i].getAttribute('data-tab');
+
+            if(inner == true) {
+                let buttonText = areaButton[i].innerHTML;
+                innerClass.innerHTML = buttonText;
+            }
 
             for(let k = 0; k < areaTab.length; k++) {
                 let dataTabO = areaTab[k].getAttribute('data-tab');
@@ -695,10 +882,18 @@ const openArea = function() {
         }
     }
 }
-const openCountry = function() {
-    return true;
-}
-openArea();
+
+const areaButtonArea = document.getElementsByClassName('js-area-button');
+const areaTabArea = document.getElementsByClassName('js-area-tab');
+const regionalButtons = document.getElementsByClassName('js-regional-button');
+const regionalTabs = document.getElementsByClassName('js-regional-tab');
+const regionalInnerClass = document.getElementsByClassName('js-regional-name')[0];
+const localButtons = document.getElementsByClassName('js-local-button');
+const localTabs = document.getElementsByClassName('js-local-tab');
+const innerLocal = document.getElementsByClassName('js-local-name')[0];
+openArea(areaButtonArea, areaTabArea, false);
+openArea(regionalButtons, regionalTabs, true, regionalInnerClass);
+openArea(localButtons, localTabs, true, innerLocal);
 </script>
 </body>
 </html>

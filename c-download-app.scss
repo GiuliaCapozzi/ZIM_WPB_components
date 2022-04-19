@@ -1,0 +1,78 @@
+@import 'variables';
+
+.c-download-app {
+    font-family: $font-primary;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-top: 2px solid $color-light-purple;
+    border-bottom: 2px solid $color-light-purple;
+    .c-title {
+        margin-bottom: 30px;
+        @media (min-width: $md) {
+            margin-left: 0;
+            margin-right: 0;
+            width: 100%;
+            text-align: left;
+        }
+    }
+    &__wrapper {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        @media (min-width: $md) {
+            display: flex;
+            .c-download-app__texts {
+                flex-basis: 60%;
+            }
+            .c-download-app__img {
+                flex-basis: 40%;
+            }
+        }
+    }
+    &__texts {
+        @media (min-width: $md) {
+            padding-top: 7%;
+        }
+    }
+    &__subtitle {
+        font-size: rem(12);
+        line-height: rem(21);
+        margin-bottom: 30px;
+        @media (min-width: $md) {
+            font-size: rem(15);
+            padding-right: 10%;
+        }
+    }
+    &__buttons {
+        display: flex;
+        justify-content: center;
+        @media (min-width: $md) {
+            justify-content: flex-start;
+        }
+        img {
+            width: 103px;
+            max-width: 100%;
+            height: 42px;
+            @media (min-width: $md) {
+                width: 139px;
+                height: 57px;
+            }
+        }
+        a {
+            &:nth-of-type(1) {
+                margin-right: 12px;
+            }
+        }
+    }
+    &__img {
+        margin-top: 40px;
+        width: 297px;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        @media (min-width: $md) {
+            margin-top: 0;
+        }
+    }
+}

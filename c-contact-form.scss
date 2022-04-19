@@ -1,0 +1,42 @@
+@import 'variables';
+
+.c-contact-form {
+    padding-top: 60px;
+    border-top: 1px solid $color-light-purple;
+    font-family: $font-primary;
+    &__options {
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-evenly;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        @media (min-width: $lg) {
+            width: 50%;
+        }
+
+        label {
+            color: $color-lighter-black;
+            font-size: rem(12);
+            @media (min-width: $md) {
+                font-size: rem(18);
+            }
+        }
+    }
+    &__forms {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+        @media (min-width: $md) {
+            width: 50%;
+        }
+
+        &-tab {
+            display: none;
+            &.visible {
+                display: block;
+            }
+        }
+    }
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="c-plans.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="c-modal.css" >
+    <link rel="stylesheet" href="owl.carousel.min.css" >
+    <title>Home modal</title>
+</head>
+<body>
+    <div class="c-modal">
+        <div class="c-modal__fade">
+            <div class="c-modal__content">
+                <span class="c-modal__circle c-modal__circle--left-top">
+                    <svg width="147" height="140" viewBox="0 0 147 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M146.595 -0.000274658C140.969 78.0529 77.4857 139.585 0 139.585L0 -0.000274658H146.595Z" fill="#ECE7F3"/>
+                        </svg>
+                        
+                </span>
+                <span class="c-modal__circle c-modal__circle--right-top"><svg width="136" height="151" viewBox="0 0 136 151" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M136 150.459C59.9517 144.685 0 79.5284 0 0H136V150.459Z" fill="#ECE7F3"/>
+                </svg></span>
+                <span class="c-modal__circle c-modal__circle--right-bottom">
+                    <svg width="147" height="140" viewBox="0 0 147 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M-0.00088501 140C5.62488 61.9471 69.1081 0.415039 146.594 0.415039L146.594 140L-0.00088501 140Z" fill="#ECE7F3"/>
+                        </svg>
+                        
+                </span>
+                <span class="c-modal__circle c-modal__circle--left-bottom">
+                    <svg width="136" height="151" viewBox="0 0 136 151" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0.124817C76.0483 5.89888 136 71.0556 136 150.584H0V0.124817Z" fill="#ECE7F3"/>
+                        </svg>
+                        
+                </span>
+                
+                <p class="c-modal__title">
+                    Subscribe to our newsletter
+                </p>
+                <p class="c-modal__subtitle">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                </p>
+                <div class="c-modal__form">
+                    form shortcode
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const modal = document.getElementsByClassName('c-modal')[0];
+        setTimeout(function(){
+           modal.classList.add('visible');
+        },1500)
+
+    //close modal
+    document.addEventListener(
+        "click",
+        function(event) {
+          // If user either clicks X button OR clicks outside the modal window, then close modal by calling closeModal()
+          if (
+            !event.target.closest(".c-modal__content")
+          ) {
+            closeModal()
+            console.log('close');
+          }else {
+              
+            console.log('not close');
+          }
+        },
+        false
+      )
+      
+      function closeModal() {
+        document.querySelector(".c-modal").classList.remove('visible');
+      }
+    </script>
+</body>
+</html>

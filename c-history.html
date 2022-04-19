@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="c-plans.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="c-history.css">
+    <link rel="stylesheet" href="owl.carousel.min.css" >
+    <title>Home page</title>
+    <style>
+        .spacer {
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="c-story-carousel js-local-tab visible" data-tab="europe">
+        <div class="c-title">
+            <p class="c-title__title">Our story</p>
+            <p class="c-title__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  </p>
+        </div>
+        <div class="c-story-carousel__carousel">
+            <div class="owl-carousel owl-theme js-history-carousel">                
+                <div class="item">
+                    <div class="c-story-card">
+                        <p class="c-story-card__title">March 2022</p>
+                        <p class="c-story-card__text">
+                            We started with an accelerator, lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                        </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="c-story-card active" >
+                        <p class="c-story-card__title">March 2022</p>
+                        <p class="c-story-card__text">
+                            We started with an accelerator, lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                        </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="c-story-card">
+                        <p class="c-story-card__title">March 2022</p>
+                        <p class="c-story-card__text">
+                            We started with an accelerator, lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<script
+                  src="https://code.jquery.com/jquery-3.6.0.min.js"
+                  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                  crossorigin="anonymous"></script>
+<script src="owl.carousel.min.js"></script>
+<script>
+    $('.js-history-carousel').owlCarousel({
+    stagePadding: 50,
+    merge: true,
+    loop:true,
+    margin:10,
+    nav:false,
+    dots: true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:2
+        },
+        1000:{
+            items:3
+        }
+    }
+})
+</script>
+</body>
+</html>

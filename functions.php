@@ -209,3 +209,6 @@ function get_dump() {
 require_once( 'vc-components/vc-soda-blockquote.php' ); 
 require_once( 'vc-components/vc-zim-image-card.php' ); 
 require_once( 'vc-components/vc-zim-download-app.php' ); 
+require_once( 'vc-components/vc-zim-hero.php' ); 
+require_once( 'vc-components/vc-zim-app-stepper.php' );
+require_once( 'vc-components/vc-zim-title.php' ); 

@@ -1,0 +1,46 @@
+.c-story-card {
+  font-family: "Montserrat", sans-serif;
+  padding: 20px 28px;
+  border-radius: 8px;
+  border: 1px solid #B29DD5;
+}
+.c-story-card__title {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-bottom: 16px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 10px 25px;
+  background-color: #fff;
+  font-weight: 700;
+  color: #000;
+  border-radius: 8px;
+  border: 1px solid #B29DD5;
+}
+.c-story-card__text {
+  font-size: 0.9375rem;
+  line-height: 1.0625rem;
+  color: #000;
+  text-align: center;
+  padding: 10px 25px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+.c-story-card.active {
+  background-color: #B29DD5;
+  border: none;
+}
+
+.c-story-carousel .owl-carousel {
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+@media (min-width: 768px) {
+  .c-story-carousel .owl-carousel {
+    width: 80%;
+  }
+}

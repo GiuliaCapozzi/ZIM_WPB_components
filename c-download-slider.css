@@ -1,0 +1,119 @@
+.c-download-slider {
+  font-family: "Montserrat", sans-serif;
+}
+@media (min-width: 768px) {
+  .c-download-slider {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.c-download-slider .owl-carousel figure {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+.c-download-slider .owl-carousel figure img {
+  width: 233px;
+  max-width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+@media (min-width: 768px) {
+  .c-download-slider .owl-carousel figure img {
+    width: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  .c-download-slider .owl-carousel figure img {
+    width: 300px;
+  }
+}
+@media (min-width: 768px) {
+  .c-download-slider .c-title {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+  }
+}
+.c-download-slider__subtitle {
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  text-align: center;
+}
+@media (max-width: 767px) {
+  .c-download-slider__subtitle {
+    padding: 15px;
+  }
+}
+@media (min-width: 768px) {
+  .c-download-slider__subtitle {
+    text-align: left;
+    font-size: 0.9375rem;
+    line-height: 1.25rem;
+  }
+}
+@media (min-width: 768px) {
+  .c-download-slider__wrapper {
+    display: flex;
+  }
+}
+@media (min-width: 768px) {
+  .c-download-slider__texts {
+    width: 60%;
+    display: inline-block;
+    align-self: center;
+    padding-right: 10%;
+  }
+  .c-download-slider__images {
+    width: 38%;
+    display: inline-block;
+  }
+}
+@media (min-width: 768px) {
+  .c-download-slider__step-carousel {
+    margin-top: 30px;
+  }
+}
+
+.c-step-card {
+  font-family: "Montserrat", sans-serif;
+}
+.c-step-card__title {
+  text-transform: uppercase;
+  color: #3F0A72;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .c-step-card__title {
+    text-align: left;
+    padding-left: 15px;
+  }
+}
+.c-step-card__card {
+  margin-bottom: 33px;
+  box-shadow: 0px 0px 0.682292px rgba(12, 26, 75, 0.24), 0px 2.04688px 5.45833px -0.682292px rgba(50, 50, 71, 0.05);
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 20px;
+  width: 80%;
+}
+@media (max-width: 767px) {
+  .c-step-card__card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.c-step-card__card-title {
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 1.0625rem;
+}
+.c-step-card__card-txt {
+  color: #425466;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+}
