@@ -17,7 +17,7 @@ if ( ! class_exists( 'vcDownloadApp' ) ) {
 
         function __construct() {
             add_action( 'init', array( $this, 'create_shortcode' ), 999 );            
-            add_shortcode( 'vc_zim_app', array( $this, 'render_shortcode_two' ) );
+            add_shortcode( 'vc_zim_download_app', array( $this, 'render_shortcode_two' ) );
 
         }        
 
@@ -30,7 +30,7 @@ if ( ! class_exists( 'vcDownloadApp' ) ) {
             // Map blockquote with vc_map()
             vc_map( array(
                 'name'          => __('Download app', 'sodawebmedia'),
-                'base'          => 'vc_zim_app',
+                'base'          => 'vc_zim_download_app',
                 'description'  	=> __( '', 'sodawebmedia' ),
                 'category'      => __( 'ZIM Modules', 'sodawebmedia'),                
                 'params' => array(    
@@ -41,7 +41,7 @@ if ( ! class_exists( 'vcDownloadApp' ) ) {
                         'heading'       => __( 'Title', 'sodawebmedia' ),
                         'param_name'    => 'card-title',
                         'value'         => __( '', 'sodawebmedia' ),
-                        'description'   => __( 'Add Author Quote.', 'sodawebmedia' ),
+                        'description'   => __( 'Add block title.', 'sodawebmedia' ),
                     ),
 
                     array(
@@ -109,30 +109,27 @@ if ( ! class_exists( 'vcDownloadApp' ) ) {
             $element_id         = esc_attr($atts['element_id']); 
             
             $output = '
-            <div class="c-download-app">
-            <div class="c-download-app__wrapper">
-                <div class="c-download-app__text">
-                    <p class="c-download-app__title">
-                        Download our App and have your eSIM in your pocket.
-                    </p>
-                    <div class="c-download-app__content">
-                        <ul>
-                            <li> Compare between all the plans.</li>
-                            <li> Buy the eSIM inside the app.</li>
-                            <li> Check how much data you have left.</li>
-                            <li>Much more!</li>
-                        </ul>
-                    </div>
-                    <div class="c-download-app__logos">
-                        <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/02/Badge.png" alt="">
-                        <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/02/Badge1.png" alt="">
+                <div class="c-download-app '.$extra_class.'" id="'.$element_id.'">
+                    <div class="c-download-app__wrapper">
+                        <div class="c-download-app__texts">
+                            <div class="c-title">
+                                <h2 class="c-title__title">
+                                    '.$card_title.'
+                                </h2>
+                            </div>
+                            <p class="c-download-app__subtitle">
+                               '.$content.'
+                            </p>
+                            <div class="c-download-app__buttons">
+                                <a href="#"><img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/google-download.png" alt=""></a>
+                                <a href="#"><img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/apple-download.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="c-download-app__img">
+                        '.$img['thumbnail'].'
+                        </div>
                     </div>
                 </div>
-                <div class="c-download-app__img">
-                    <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/02/Mockup-audemic-1-1.png" alt="">
-                </div>
-            </div>
-            </div>
             ';
 
             return $output;

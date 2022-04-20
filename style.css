@@ -1579,6 +1579,8 @@ Author URI: http://us-themes.com/
   }
   .c-download-app__wrapper .c-download-app__img {
     flex-basis: 40%;
+    align-self: flex-end;
+    text-align: center;
   }
 }
 @media (min-width: 768px) {
