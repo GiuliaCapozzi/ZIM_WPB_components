@@ -214,3 +214,8 @@ require_once( 'vc-components/vc-zim-app-stepper.php' );
 require_once( 'vc-components/vc-zim-title.php' ); 
 require_once( 'vc-components/vc-zim-opinion.php' ); 
 require_once( 'vc-components/vc-zim-download-app.php' ); 
+require_once( 'vc-components/vc-zim-hero-secondary.php' ); 
+require_once( 'vc-components/vc-zim-accepted-payments.php' ); 
+require_once( 'vc-components/vc-zim-hero-terciary.php' ); 
+require_once( 'vc-components/vc-zim-team-card.php' ); 
+require_once( 'vc-components/vc-zim-offices.php' ); 
