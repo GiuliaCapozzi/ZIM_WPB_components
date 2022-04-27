@@ -219,3 +219,7 @@ require_once( 'vc-components/vc-zim-accepted-payments.php' );
 require_once( 'vc-components/vc-zim-hero-terciary.php' ); 
 require_once( 'vc-components/vc-zim-team-card.php' ); 
 require_once( 'vc-components/vc-zim-offices.php' ); 
+require_once( 'vc-components/vc-zim-modal.php' ); 
+require_once( 'vc-components/vc-zim-carousel.php' ); 
+require_once( 'vc-components/vc-partners-carousel.php' ); 
+require_once( 'vc-components/vc-zim-story.php' ); 

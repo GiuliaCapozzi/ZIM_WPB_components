@@ -8,7 +8,7 @@
   font-size: 0.875rem;
   line-height: 1.25rem;
   margin-bottom: 16px;
-  width: 50%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -18,6 +18,11 @@
   color: #000;
   border-radius: 8px;
   border: 1px solid #B29DD5;
+}
+@media (min-width: 768px) {
+  .c-story-card__title {
+    width: 50%;
+  }
 }
 .c-story-card__text {
   font-size: 0.9375rem;

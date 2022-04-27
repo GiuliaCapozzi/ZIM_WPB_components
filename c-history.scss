@@ -9,7 +9,7 @@
         font-size: rem(14);
         line-height: rem(20);
         margin-bottom: 16px;
-        width: 50%;
+        width: 90%;
         margin-left: auto;
         margin-right: auto;
         text-align: center;
@@ -19,6 +19,9 @@
         color: $color-black;
         border-radius: 8px;
         border: 1px solid $color-light-purple;
+        @media (min-width: $md) {
+            width: 50%;
+        }
     }
     &__text {
         font-size: rem(15);
