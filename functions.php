@@ -127,7 +127,10 @@ function obtener_info($atts) {
 add_shortcode('get_plans', 'obtener_planes');
 
 function obtener_planes() {
-    $url = 'https://zimconnections-api.live/truphone/products/FRA';
+    //url usa
+    $url = 'https://zimconnections-api.live/truphone/products/USA';
+    //url europe
+    $url_europe = 'https://zimconnections-api.live/truphone/products/DEU';
     $token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWM0ODk2MDU0NjQ3OWJmNmVlOGEzZDAiLCJpYXQiOjE2NDMwMjMzOTJ9.kJG4DksJ0ju9_HAddmBsx-pZlPcW0K9uAFUqike8_Tg';
 
     $response = wp_safe_remote_get( 
@@ -140,52 +143,711 @@ function obtener_planes() {
         ),
     );
 
+    $response_europe = wp_safe_remote_get( 
+        $url_europe, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
     $body = wp_remote_retrieve_body($response);
     $data = json_decode($body);
 
-     $template = "<table>
-                    <thead>
-                      <th>ID</th>
-                      <th>name</th>
-                      <th>price</th>
-                      <th>duration</th>
-                    </thead>
-                     {data}
-                </table>";
-    
-    if($data) {
-        $str = '<tbody>';
-        foreach($data as $plan) {
-            $str .= '<tr>';
-            $str .= "<td>
-                       $plan->id
-                    </td>";
-            $str.= "<td>
-                ".$plan->name."
-            </td>";
-            $str.= "<td>
-                ".$plan->price." ".$plan->price_currency."
-            </td>";
-            $str.= "<td>
-                ".$plan->duration." ".$plan->duration_unit."
-            </td>";
-            $str .= '</tr>';
-        }
-        $str .= '</tbody>';
-    }
+    //europe
+    $body_europe = wp_remote_retrieve_body($response_europe);
+    $data_europe = json_decode($body_europe);
 
-    $html = str_replace('{data}', $str, $template);
+    $template = '
+    <div class="c-plans">
+        <div class="c-title">
+            <p class="c-title__title">
+                ZIM plans and coverage areas
+            </p>
+        </div>
+        <div class="c-plans__wrapper">
+            <nav class="c-plans__nav">
+            <a href="#" class="js-area-button active" data-tab="global">Global</a>  
+            <a href="#" class="js-area-button" data-tab="regional">Regional</a>  
+            <a href="#" class="js-area-button" data-tab="local">Local</a>  
+            </nav>
+            <div class="c-plans__tabs js-area-tab visible" data-tab="global">
+                <div class="c-plans__tabs-wrapper">                        
+                    <div class="c-plans-card">
+                        <div class="c-plans-card__top">
+                            <p class="c-plans-card__title">
+                                20 GB
+                            </p>
+                            <p class="c-plans-card__logo">
+                                <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                            </p>
+                        </div>
+                        <div class="c-plans-card__text">
+                            <p class="c-plans-card__duration">4 weeks</p>
+                            <p class="c-plans-card__price">€ 20</p>
+                        </div>
+                        <div class="c-plans-card__buttons">
+                            <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                            <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                        </div>
+                    </div>
+                    <div class="c-plans-card">
+                        <div class="c-plans-card__top">
+                            <p class="c-plans-card__title">
+                                20 GB
+                            </p>
+                            <p class="c-plans-card__logo">
+                                <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                            </p>
+                        </div>
+                        <div class="c-plans-card__text">
+                            <p class="c-plans-card__duration">4 weeks</p>
+                            <p class="c-plans-card__price">€ 20</p>
+                        </div>
+                        <div class="c-plans-card__buttons">
+                            <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                            <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                        </div>
+                    </div>
+                    <div class="c-plans-card">
+                        <div class="c-plans-card__top">
+                            <p class="c-plans-card__title">
+                                20 GB
+                            </p>
+                            <p class="c-plans-card__logo">
+                                <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                            </p>
+                        </div>
+                        <div class="c-plans-card__text">
+                            <p class="c-plans-card__duration">4 weeks</p>
+                            <p class="c-plans-card__price">€ 20</p>
+                        </div>
+                        <div class="c-plans-card__buttons">
+                            <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                            <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                        </div>
+                    </div>
+                    <div class="c-plans-card">
+                        <div class="c-plans-card__top">
+                            <p class="c-plans-card__title">
+                                20 GB
+                            </p>
+                            <p class="c-plans-card__logo">
+                                <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                            </p>
+                        </div>
+                        <div class="c-plans-card__text">
+                            <p class="c-plans-card__duration">4 weeks</p>
+                            <p class="c-plans-card__price">€ 20</p>
+                        </div>
+                        <div class="c-plans-card__buttons">
+                            <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                            <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                        </div>
+                    </div>
+                    <div class="c-plans-card">
+                        <div class="c-plans-card__top">
+                            <p class="c-plans-card__title">
+                                20 GB
+                            </p>
+                            <p class="c-plans-card__logo">
+                                <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                            </p>
+                        </div>
+                        <div class="c-plans-card__text">
+                            <p class="c-plans-card__duration">4 weeks</p>
+                            <p class="c-plans-card__price">€ 20</p>
+                        </div>
+                        <div class="c-plans-card__buttons">
+                            <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                            <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="c-plans__tabs js-area-tab" data-tab="regional">
+                <nav class="c-plans__subnav">
+                    <a href="#" class="active js-regional-button" data-tab="europe-regional">Europe</a>
+                    <a href="#" class="js-regional-button" data-tab="usa-regional">USA</a>
+                    <a href="#" class="js-regional-button" data-tab="asia-pacific-regional">Asia Pacific</a>
+                </nav>
+                <div class="c-title">
+                    <h2 class="c-title__title">Available plans <span class="js-regional-name"></span></h2>
+                </div>
+                <div class="c-plans__tabs-wrapper js-regional-tab visible" data-tab="europe-regional">';     
+                foreach($data_europe as $plan_eu) {                   
+                    $template .=  '
+                        <div class="c-plans-card">
+                            <div class="c-plans-card__top">
+                                <p class="c-plans-card__title">
+                                    '.$plan_eu->data.' '.$plan_eu->data_unit.'
+                                </p>
+                                <p class="c-plans-card__logo">
+                                    <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                                </p>
+                            </div>
+                            <div class="c-plans-card__text">
+                                <p class="c-plans-card__duration">'.$plan_eu->duration.' '.$plan_eu->duration_unit.'</p>
+                                <p class="c-plans-card__price">'.$plan_eu->price_currency.' '.$plan_eu->price.'</p>
+                            </div>
+                            <div class="c-plans-card__buttons">
+                                <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                                <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                            </div>
+                        </div>';
+                }
+                $template .=  ' </div>
+                <div class="c-plans__tabs-wrapper js-regional-tab" data-tab="usa-regional">';
+                foreach($data as $plan) {
+                    $template .= '
+                        <div class="c-plans-card">
+                            <div class="c-plans-card__top">
+                                <p class="c-plans-card__title">
+                                    '.$plan->data.' '.$plan->data_unit.'
+                                </p>
+                                <p class="c-plans-card__logo">
+                                    <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                                </p>
+                            </div>
+                            <div class="c-plans-card__text">
+                                <p class="c-plans-card__duration">'.$plan->duration.' '.$plan->duration_unit.'</p>
+                                <p class="c-plans-card__price">'.$plan->price_currency.' '.$plan->price.'</p>
+                            </div>
+                            <div class="c-plans-card__buttons">
+                                <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                                <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                            </div>
+                        </div>';
+                }
+                $template .= '</div>
+                <div class="c-plans__tabs-wrapper js-regional-tab" data-tab="asia-pacific-regional">                        
+                    <div class="c-plans-card">
+                        <div class="c-plans-card__top">
+                            <p class="c-plans-card__title">
+                                20 GB
+                            </p>
+                            <p class="c-plans-card__logo">
+                                <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                            </p>
+                        </div>
+                        <div class="c-plans-card__text">
+                            <p class="c-plans-card__duration">4 weeks</p>
+                            <p class="c-plans-card__price">€ 20</p>
+                        </div>
+                        <div class="c-plans-card__buttons">
+                            <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                            <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                        </div>
+                    </div>
+                    <div class="c-plans-card">
+                        <div class="c-plans-card__top">
+                            <p class="c-plans-card__title">
+                                20 GB
+                            </p>
+                            <p class="c-plans-card__logo">
+                                <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                            </p>
+                        </div>
+                        <div class="c-plans-card__text">
+                            <p class="c-plans-card__duration">4 weeks</p>
+                            <p class="c-plans-card__price">€ 20</p>
+                        </div>
+                        <div class="c-plans-card__buttons">
+                            <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                            <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                        </div>
+                    </div>
+                    <div class="c-plans-card">
+                        <div class="c-plans-card__top">
+                            <p class="c-plans-card__title">
+                                20 GB
+                            </p>
+                            <p class="c-plans-card__logo">
+                                <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                            </p>
+                        </div>
+                        <div class="c-plans-card__text">
+                            <p class="c-plans-card__duration">4 weeks</p>
+                            <p class="c-plans-card__price">€ 20</p>
+                        </div>
+                        <div class="c-plans-card__buttons">
+                            <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                            <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                        </div>
+                    </div>
+                    <div class="c-plans-card">
+                        <div class="c-plans-card__top">
+                            <p class="c-plans-card__title">
+                                20 GB
+                            </p>
+                            <p class="c-plans-card__logo">
+                                <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                            </p>
+                        </div>
+                        <div class="c-plans-card__text">
+                            <p class="c-plans-card__duration">4 weeks</p>
+                            <p class="c-plans-card__price">€ 20</p>
+                        </div>
+                        <div class="c-plans-card__buttons">
+                            <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                            <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                        </div>
+                    </div>
+                    <div class="c-plans-card">
+                        <div class="c-plans-card__top">
+                            <p class="c-plans-card__title">
+                                20 GB
+                            </p>
+                            <p class="c-plans-card__logo">
+                                <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                            </p>
+                        </div>
+                        <div class="c-plans-card__text">
+                            <p class="c-plans-card__duration">4 weeks</p>
+                            <p class="c-plans-card__price">€ 20</p>
+                        </div>
+                        <div class="c-plans-card__buttons">
+                            <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                            <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="c-plans__tabs js-area-tab" data-tab="local">
+                <nav class="c-plans__subnav">
+                    <a href="#" class="js-local-button active" data-tab="europe">Europe</a>
+                    <a href="#" class="js-local-button" data-tab="america">America</a>
+                    <a href="#" class="js-local-button" data-tab="asia">Asia</a>
+                    <a href="#" class="js-local-button" data-tab="oceania">Oceania</a>
+                    <a href="#" class="js-local-button" data-tab="africa">Africa</a>
+                </nav>
+                <div class="c-plans__tabs-carousels">
+                    <div class="c-plans-carousel js-local-tab visible" data-tab="europe">
+                        <div class="c-plans-carousel__carousel">
+                            <div class="owl-carousel owl-theme js-plans-carousel">
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>               
+                                
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="c-plans-carousel js-local-tab" data-tab="america">
+                        <div class="c-plans-carousel__carousel">
+                            <div class="owl-carousel owl-theme js-plans-carousel">
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>               
+                                
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="c-plans-carousel js-local-tab" data-tab="asia">
+                        <div class="c-plans-carousel__carousel">
+                            <div class="owl-carousel owl-theme js-plans-carousel">
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>               
+                                
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="c-plans-carousel js-local-tab" data-tab="oceania">
+                        <div class="c-plans-carousel__carousel">
+                            <div class="owl-carousel owl-theme js-plans-carousel">
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>               
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-plans-carousel js-local-tab" data-tab="africa">
+                        <div class="c-plans-carousel__carousel">
+                            <div class="owl-carousel owl-theme js-plans-carousel">
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>      
+                                <a href="#" class="item">
+                                    <div class="c-plans-carousel-card">
+                                        <figure>
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">Austria</p>
+                                    </div>
+                                </a>               
+                                
+                            </div>
+                        </div>
+                    </div>     
+                </div>                 
+                <div class="c-title">
+                    <h2 class="c-title__title">Available plans <span class="js-local-name"></span></h2>
+                </div>
+                <div class="c-plans__tabs-wrapper">                        
+                    <div class="c-plans-card">
+                        <div class="c-plans-card__top">
+                            <p class="c-plans-card__title">
+                                20 GB
+                            </p>
+                            <p class="c-plans-card__logo">
+                                <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                            </p>
+                        </div>
+                        <div class="c-plans-card__text">
+                            <p class="c-plans-card__duration">4 weeks</p>
+                            <p class="c-plans-card__price">€ 20</p>
+                        </div>
+                        <div class="c-plans-card__buttons">
+                            <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                            <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                        </div>
+                    </div>
+                    <div class="c-plans-card">
+                        <div class="c-plans-card__top">
+                            <p class="c-plans-card__title">
+                                20 GB
+                            </p>
+                            <p class="c-plans-card__logo">
+                                <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                            </p>
+                        </div>
+                        <div class="c-plans-card__text">
+                            <p class="c-plans-card__duration">4 weeks</p>
+                            <p class="c-plans-card__price">€ 20</p>
+                        </div>
+                        <div class="c-plans-card__buttons">
+                            <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                            <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                        </div>
+                    </div>
+                    <div class="c-plans-card">
+                        <div class="c-plans-card__top">
+                            <p class="c-plans-card__title">
+                                20 GB
+                            </p>
+                            <p class="c-plans-card__logo">
+                                <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                            </p>
+                        </div>
+                        <div class="c-plans-card__text">
+                            <p class="c-plans-card__duration">4 weeks</p>
+                            <p class="c-plans-card__price">€ 20</p>
+                        </div>
+                        <div class="c-plans-card__buttons">
+                            <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                            <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                        </div>
+                    </div>
+                    <div class="c-plans-card">
+                        <div class="c-plans-card__top">
+                            <p class="c-plans-card__title">
+                                20 GB
+                            </p>
+                            <p class="c-plans-card__logo">
+                                <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                            </p>
+                        </div>
+                        <div class="c-plans-card__text">
+                            <p class="c-plans-card__duration">4 weeks</p>
+                            <p class="c-plans-card__price">€ 20</p>
+                        </div>
+                        <div class="c-plans-card__buttons">
+                            <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                            <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                        </div>
+                    </div>
+                    <div class="c-plans-card">
+                        <div class="c-plans-card__top">
+                            <p class="c-plans-card__title">
+                                20 GB
+                            </p>
+                            <p class="c-plans-card__logo">
+                                <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                            </p>
+                        </div>
+                        <div class="c-plans-card__text">
+                            <p class="c-plans-card__duration">4 weeks</p>
+                            <p class="c-plans-card__price">€ 20</p>
+                        </div>
+                        <div class="c-plans-card__buttons">
+                            <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
+                            <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    ';
 
-    return $html; 
-
-    //var_dump($data);
+    return $template;
 
 }
 
 add_shortcode('var_dump', 'get_dump');
 function get_dump() {
     
-    $url = 'https://zimconnections-api.live/truphone/products/DEU';
+    $url = 'https://zimconnections-api.live/truphone/products/USA';
     $token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWM0ODk2MDU0NjQ3OWJmNmVlOGEzZDAiLCJpYXQiOjE2NDMwMjMzOTJ9.kJG4DksJ0ju9_HAddmBsx-pZlPcW0K9uAFUqike8_Tg';
 
     $response = wp_safe_remote_get( 
@@ -223,3 +885,5 @@ require_once( 'vc-components/vc-zim-modal.php' );
 require_once( 'vc-components/vc-zim-carousel.php' ); 
 require_once( 'vc-components/vc-partners-carousel.php' ); 
 require_once( 'vc-components/vc-zim-story.php' ); 
+require_once( 'vc-components/vc-zim-compatibility.php' ); 
+require_once( 'vc-components/vc-zim-faqs.php' ); 

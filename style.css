@@ -1132,6 +1132,12 @@ Author URI: http://us-themes.com/
     left: 3%;
   }
 }
+.js-regional-tab {
+  display: none;
+}
+.js-regional-tab.visible {
+  display: flex;
+}
 /*c-story-card*/
 .c-story-card {
   font-family: "Montserrat", sans-serif;
