@@ -68,7 +68,7 @@ window.onload=function() {
     //plans carousel
     
     jQuery('.js-plans-carousel').owlCarousel({
-        loop:true,
+        loop:false,
         margin:10,
         nav:false,
         dots: true,

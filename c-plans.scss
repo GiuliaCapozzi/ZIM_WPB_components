@@ -109,6 +109,17 @@
             }
         }        
     }
+
+    &__local-country {
+        display: flex;
+        margin-top: 30px;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        .c-plans-card {
+            flex-basis: 25%;
+            margin: 30px;
+        }
+    }
 }
 
 

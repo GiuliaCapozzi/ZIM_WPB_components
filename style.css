@@ -10,6 +10,9 @@ Author URI: http://us-themes.com/
 /*Add your own styles here:*/
 
 /*ATOMIC COMPONENTS*/
+.mb-4 {
+  margin-bottom: 40px;
+}
 .c-button {
   border-radius: 4px;
 }
@@ -987,6 +990,16 @@ Author URI: http://us-themes.com/
   .c-plans__tabs-wrapper .c-plans-card {
     flex-basis: 27%;
   }
+}
+.c-plans__local-country {
+  display: flex;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.c-plans__local-country .c-plans-card {
+  flex-basis: 25%;
+  margin: 30px;
 }
 
 .c-plans-card {
