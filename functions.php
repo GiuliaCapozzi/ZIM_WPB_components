@@ -438,165 +438,165 @@ function obtener_planes() {
                     <div class="c-plans-carousel js-local-tab visible" data-tab="europe">
                         <div class="c-plans-carousel__carousel">
                             <div class="owl-carousel owl-theme js-plans-carousel">
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/aut.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Austria</p>
                                     </div>
                                 </a>      
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/bel.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Belgium</p>
                                     </div>
                                 </a>      
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/hrv.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Croatia</p>
                                     </div>
                                 </a>      
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/cyp.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Cyprus</p>
                                     </div>
                                 </a>      
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/cze.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Czech Republic</p>
                                     </div>
                                 </a>      
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/deu.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Germany</p>
                                     </div>
                                 </a>      
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/grc.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Greece</p>
                                     </div>
                                 </a>   
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/hun.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Hungary</p>
                                     </div>
                                 </a>
 
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/irl.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Ireland</p>
                                     </div>
                                 </a>   
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/ita.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Italy</p>
                                     </div>
                                 </a>    
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/nld.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Netherlands</p>
                                     </div>
                                 </a>  
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/nor.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Norway</p>
                                     </div>
                                 </a>     
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/pol.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Poland</p>
                                     </div>
                                 </a>       
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/prt.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Portugal</p>
                                     </div>
                                 </a>         
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/swe.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Sweden</p>
                                     </div>
                                 </a>   
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/che.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Switzerland</p>
                                     </div>
                                 </a>   
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/gbr.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">UK</p>
                                     </div>
                                 </a>   
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/fra.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">France</p>
                                     </div>
                                 </a>  
                                  
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/esp.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Spain</p>
                                     </div>
                                 </a> 
                                  
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/alb.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Albania</p>
                                     </div>
@@ -607,82 +607,82 @@ function obtener_planes() {
                     <div class="c-plans-carousel js-local-tab" data-tab="america">
                         <div class="c-plans-carousel__carousel">
                             <div class="owl-carousel owl-theme js-plans-carousel">
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/per.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Peru</p>
                                     </div>
                                 </a>      
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/br.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Brazil</p>
                                     </div>
                                 </a>      
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/arg.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Argentina</p>
                                     </div>
                                 </a>      
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/abw.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Aruba</p>
                                     </div>
                                 </a>      
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/ury.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Uruguay</p>
                                     </div>
                                 </a>      
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/tto.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Trinidad</p>
                                     </div>
                                 </a>      
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/sur.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Suriname</p>
                                     </div>
                                 </a>        
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/usa.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">USA</p>
                                     </div>
                                 </a>      
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/jam.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Jamaica</p>
                                     </div>
                                 </a>      
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/aia.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Anguilla</p>
                                     </div>
@@ -694,98 +694,98 @@ function obtener_planes() {
                     <div class="c-plans-carousel js-local-tab" data-tab="asia">
                         <div class="c-plans-carousel__carousel">
                             <div class="owl-carousel owl-theme js-plans-carousel">
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/hkg.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Hong Kong</p>
                                     </div>
                                 </a>      
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/isr.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Israel</p>
                                     </div>
                                 </a>      
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/jpn.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Japan</p>
                                     </div>
                                 </a>      
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/chn.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">China</p>
                                     </div>
                                 </a>      
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/ind.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">India</p>
                                     </div>
                                 </a>      
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/idn.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Indonesia</p>
                                     </div>
                                 </a>      
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/mys.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Malaysia</p>
                                     </div>
                                 </a>       
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/sgp.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Singapore</p>
                                     </div>
                                 </a>        
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/twn.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Taiwan </p>
                                     </div>
                                 </a>          
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/tha.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Thailand</p>
                                     </div>
                                 </a>     
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/kor.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">South Korea</p>
                                     </div>
                                 </a>              
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/tur.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Turkey</p>
                                     </div>
@@ -797,10 +797,10 @@ function obtener_planes() {
                     <div class="c-plans-carousel js-local-tab" data-tab="oceania">
                         <div class="c-plans-carousel__carousel">
                             <div class="owl-carousel owl-theme js-plans-carousel">
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/aus.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Australia</p>
                                     </div>
@@ -812,26 +812,26 @@ function obtener_planes() {
                     <div class="c-plans-carousel js-local-tab" data-tab="africa">
                         <div class="c-plans-carousel__carousel">
                             <div class="owl-carousel owl-theme js-plans-carousel">
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/zaf.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">South Africa</p>
                                     </div>
                                 </a>      
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/ken.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Kenya</p>
                                     </div>
                                 </a>      
-                                <a href="#" class="item">
+                                <a href="#plansIn" class="item">
                                     <div class="c-plans-carousel-card">
                                         <figure>
-                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/plan-card-carousel-1.png" alt=""> 
+                                            <img src="https://zimconnections-api.live/destinationsImgs/gha.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Ghana</p>
                                     </div>
@@ -841,7 +841,7 @@ function obtener_planes() {
                         </div>
                     </div>     
                 </div>        
-                <div class="c-plans__local-countries">        
+                <div class="c-plans__local-countries" id="plansIn">        
                     <div class="c-title">
                         <h2 class="c-title__title">Plans in <span class="js-local-name">Austria</span></h2>
                     </div>
