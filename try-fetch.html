@@ -1,0 +1,21 @@
+<script>
+  async function getPlans() {
+    const baseURL = 'https://zimconnections-api.xyz/truphone/products/DEU';
+    try {
+      const response = await fetch(baseURL, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "Application/json",
+          Accept: "Application/json",
+        },
+      });
+      const data = await response.json();
+      console.log(data[0]);
+    } catch (error) {
+      console.log("error: ", error);
+    }
+  }
+
+  getPlans();
+</script>

@@ -11,13 +11,13 @@
 
 if ( ! defined( 'ABSPATH' ) ) { exit; // Exit if accessed directly.
 }
-if ( ! class_exists( 'vcZimHero' ) ) {
+if ( ! class_exists( 'vcZimHeroSecondary' ) ) {
 
-    class vcZimHero extends WPBakeryShortCode {
+    class vcZimHeroSecondary extends WPBakeryShortCode {
 
         function __construct() {
             add_action( 'init', array( $this, 'create_shortcode' ), 999 );            
-            add_shortcode( 'vc_zim_hero', array( $this, 'render_shortcode_two' ) );
+            add_shortcode( 'vc_zim_hero_secondary', array( $this, 'render_shortcode_two' ) );
 
         }        
 
@@ -29,8 +29,8 @@ if ( ! class_exists( 'vcZimHero' ) ) {
 
             // Map blockquote with vc_map()
             vc_map( array(
-                'name'          => __('hero', 'sodawebmedia'),
-                'base'          => 'vc_zim_hero',
+                'name'          => __('Secondary hero', 'sodawebmedia'),
+                'base'          => 'vc_zim_hero_secondary',
                 'description'  	=> __( '', 'sodawebmedia' ),
                 'category'      => __( 'ZIM Modules', 'sodawebmedia'),                
                 'params' => array(    
@@ -81,6 +81,22 @@ if ( ! class_exists( 'vcZimHero' ) ) {
                     ),
 
                     array(
+                        "type" => "attach_image",
+                        "class" => "",
+                        "heading" => __( "Mobile image", 'sodawebmedia' ),
+                        "param_name" => "mobile-image",
+                        "description" => __( "Add mobile image for hero", 'sodawebmedia' ),                                                
+                    ),  
+
+                    array(
+                        "type" => "attach_image",
+                        "class" => "",
+                        "heading" => __( "Desktop image", 'sodawebmedia' ),
+                        "param_name" => "desktop-image",
+                        "description" => __( "Add desktop image for hero", 'sodawebmedia' ),                                                
+                    ),  
+
+                    array(
                         'type'          => 'textfield',
                         'holder'        => 'div',
                         'heading'       => __( 'Anchor', 'sodawebmedia' ),
@@ -117,6 +133,8 @@ if ( ! class_exists( 'vcZimHero' ) ) {
                 'highlighted-title'             => '',
                 'card-subtitle'       => '',
                 'background-image-url' => '',
+                'desktop-image' => '',
+                'mobile-image' => '',
                 'ios-url' => '',
                 'android-url' => '',
                 'anchor' => '',
@@ -154,30 +172,44 @@ if ( ! class_exists( 'vcZimHero' ) ) {
 				'thumb_size' => 'full',
 			) );
 
+            $mobile_img     =  esc_attr($atts['mobile-image']);
+            $mobile_img_thumb = wpb_getImageBySize( array(
+				'attach_id' => (int) $mobile_img,
+				'thumb_size' => 'full',
+			) );
+
+            $desktop_img     =  esc_attr($atts['desktop-image']);
+            $desktop_img_thumb = wpb_getImageBySize( array(
+				'attach_id' => (int) $desktop_img,
+				'thumb_size' => 'full',
+			) );
+
             //Class and Id
             $extra_class        = esc_attr($atts['extra_class']);
             $element_id         = esc_attr($atts['element_id']); 
             
             $output = '
-            <div class="c-hero">
-            <div class="c-hero__wrapper">
-                <div class="c-hero__titles">
-                    <p class="c-hero__title">
-                        '.$card_title.' </br> <span class="c-hero__title-color"> '.$highlighted_title.' </span>
-                    </p>
-                    <div class="ush_search_1 elm_in_header layout_simple c-hero__search-form"><div class="w-search-form"><form class="w-form-row for_text" action="https://www.zimconnections.com" method="get"><div class="w-form-row-field"><input type="text" name="s" id="us_form_search_s" placeholder="Search for country, plan..." aria-label="Search for country, plan..." class="c-hero__search-form-input" value=""></div><button class="w-search-form-btn w-btn" type="submit" aria-label="Search"><i class="fas fa-search"></i></button></form></div></div>
-                    <p class="c-hero__subtitle">
-                        '.$card_subtitle.'
-                    </p>
-                </div>
-                <div class="c-hero__download">
-                    <a href="'.$ios_url.'">
-                        <img src="https://www.zimconnections.com/wp-content/uploads/2022/05/apple-download.png" alt="">
-                    </a>
-                    <a href="'.$android_url.'">
-                        <img src="https://www.zimconnections.com/wp-content/uploads/2022/05/google-download.png" alt="">
-                    </a>
-                </div>
+                <div class="c-plans-hero">
+                    <div class="c-plans-hero__wrapper">
+                        <div class="c-plans-hero__titles">
+                            <h1 class="c-plans-hero__titles-title">
+                                '.$card_title.' <span> '.$highlighted_title.' </span>
+                            </h1>
+                            <div class="c-plans-hero__img c-plans-hero__img--mobile">
+                                '.$desktop_img_thumb['thumbnail'].'
+                            </div>  
+                            <p class="c-plans-hero__text">
+                                '.$card_subtitle.'
+                            </p>
+                            <div class="c-plans-hero__download">
+                                <a href="'.$ios_url.'"><img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/apple-button.png" alt=""></a>
+                                <a href="'.$android_url.'"><img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/playstore-button.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="c-plans-hero__desk-img">
+                            '.$desktop_img_thumb['thumbnail'].'
+                        </div>                        
+                    </div>
                 <div class="c-hero__button">
                     <a href="'.$anchor.'" class="c-button c-button__transparent c-button__transparent--purple">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -187,8 +219,7 @@ if ( ! class_exists( 'vcZimHero' ) ) {
                             Scroll down
                     </a>
                 </div>
-            </div>
-        </div>
+                </div>
             ';
 
             return $output;
@@ -197,7 +228,7 @@ if ( ! class_exists( 'vcZimHero' ) ) {
 
     }
 
-    new vcZimHero();
+    new vcZimHeroSecondary();
 
 }
 ?>

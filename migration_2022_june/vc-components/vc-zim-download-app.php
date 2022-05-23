@@ -121,8 +121,8 @@ if ( ! class_exists( 'vcDownloadApp' ) ) {
                                '.$content.'
                             </p>
                             <div class="c-download-app__buttons">
-                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank"><img src="https://www.zimconnections.com/wp-content/uploads/2022/05/apple-button.png" alt=""></a>
-                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank"><img src="https://www.zimconnections.com/wp-content/uploads/2022/05/playstore-button.png" alt=""></a>
+                                <a href="#"><img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/google-download.png" alt=""></a>
+                                <a href="#"><img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/apple-download.png" alt=""></a>
                             </div>
                         </div>
                         <div class="c-download-app__img">

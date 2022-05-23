@@ -98,7 +98,7 @@ if ( ! class_exists( 'vcZimTitle' ) ) {
             $output = ' <div class="c-title">
                           <p class="c-title__title">'.$title_text.'</p>';
             if($subtitle_text != '') {
-                $output .= '<p class="c-title__subtitle">'.$subtitle_text.' </p>';
+                $output .= '<p class="c-title__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>';
             }
             $output .= '
             </div>';

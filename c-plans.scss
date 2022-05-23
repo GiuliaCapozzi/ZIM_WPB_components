@@ -194,6 +194,9 @@
     &.visible {
         display: block;
     }
+    .owl-carousel {
+        display: flex !important;
+    }
     .owl-dots {
         text-align: center;
         margin-top: 24px;

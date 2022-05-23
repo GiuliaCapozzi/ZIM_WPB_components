@@ -202,8 +202,8 @@ if ( ! class_exists( 'vcZimHeroSecondary' ) ) {
                                 '.$card_subtitle.'
                             </p>
                             <div class="c-plans-hero__download">
-                                <a href="'.$ios_url.'"><img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/apple-button.png" alt=""></a>
-                                <a href="'.$android_url.'"><img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/playstore-button.png" alt=""></a>
+                                <a href="'.$ios_url.'"><img src="https://www.zimconnections.com/wp-content/uploads/2022/05/playstore-button.png" alt=""></a>
+                                <a href="'.$android_url.'"><img src="https://www.zimconnections.com/wp-content/uploads/2022/05/apple-button.png" alt=""></a>
                             </div>
                         </div>
                         <div class="c-plans-hero__desk-img">

@@ -11,13 +11,13 @@
 
 if ( ! defined( 'ABSPATH' ) ) { exit; // Exit if accessed directly.
 }
-if ( ! class_exists( 'vcZimTitle' ) ) {
+if ( ! class_exists( 'vcZimImageCard' ) ) {
 
-    class vcZimTitle extends WPBakeryShortCode {
+    class vcZimImageCard extends WPBakeryShortCode {
 
         function __construct() {
             add_action( 'init', array( $this, 'create_shortcode' ), 999 );            
-            add_shortcode( 'vc_zim_title', array( $this, 'render_shortcode' ) );
+            add_shortcode( 'vc_soda_imagecard', array( $this, 'render_shortcode_two' ) );
 
         }        
 
@@ -29,30 +29,38 @@ if ( ! class_exists( 'vcZimTitle' ) ) {
 
             // Map blockquote with vc_map()
             vc_map( array(
-                'name'          => __('Title Block', 'sodawebmedia'),
-                'base'          => 'vc_zim_title',
-                'description'  	=> __( 'Individual title block', 'sodawebmedia' ),
+                'name'          => __('image card', 'sodawebmedia'),
+                'base'          => 'vc_soda_imagecard',
+                'description'  	=> __( '', 'sodawebmedia' ),
                 'category'      => __( 'ZIM Modules', 'sodawebmedia'),                
                 'params' => array(    
-                      
 
                     array(
                         'type'          => 'textfield',
                         'holder'        => 'div',
-                        'heading'       => __( 'Title text', 'sodawebmedia' ),
-                        'param_name'    => 'title-text',
+                        'heading'       => __( 'Title', 'sodawebmedia' ),
+                        'param_name'    => 'card-title',
                         'value'         => __( '', 'sodawebmedia' ),
-                        'description'   => __( 'Add the title text.', 'sodawebmedia' ),
-                    ),  
-                    
+                        'description'   => __( 'Add section title', 'sodawebmedia' ),
+                    ),
+
                     array(
                         'type'          => 'textfield',
                         'holder'        => 'div',
-                        'heading'       => __( 'Subtitle text', 'sodawebmedia' ),
-                        'param_name'    => 'subtitle-text',
+                        'heading'       => __( 'Text', 'sodawebmedia' ),
+                        'param_name'    => 'card-text',
                         'value'         => __( '', 'sodawebmedia' ),
-                        'description'   => __( 'Add the title text.', 'sodawebmedia' ),
-                    ),  
+                        'description'   => __( 'Add the text parraph', 'sodawebmedia' ),
+                    ),
+
+
+                    array(
+                        "type" => "attach_image",
+                        "class" => "",
+                        "heading" => __( "Image", 'sodawebmedia' ),
+                        "param_name" => "card-image",
+                        "description" => __( "Add image", 'sodawebmedia' ),                                                
+                    ),    
 
                     array(
                         'type'          => 'textfield',
@@ -76,40 +84,56 @@ if ( ! class_exists( 'vcZimTitle' ) ) {
 
         }
 
-        public function render_shortcode( $atts, $content, $tag ) {
+        public function render_shortcode_two( $atts, $content, $tag ) {
             $atts = (shortcode_atts(array(
-                'title-text'   => '',
-                'subtitle-text' => '',
+                'card-title'      => '',
+                'card-text' => '',
+                'card-image'             => '',
                 'extra_class'       => '',
                 'element_id'        => ''
             ), $atts));
 
 
             //Content 
-            $title_text  = esc_html($atts['title-text']);
-            $subtitle_text  = esc_html($atts['subtitle-text']);
+            $card_title       = esc_attr($atts['card-title']);
+            $card_text = esc_attr($atts['card-text']);
+            $img_card     =  esc_attr($atts['card-image']);
+            $img = wpb_getImageBySize( array(
+				'attach_id' => (int) $img_card,
+				'thumb_size' => 'full',
+			) );
 
             //Class and Id
             $extra_class        = esc_attr($atts['extra_class']);
-            $element_id         = esc_attr($atts['element_id']);
+            $element_id         = esc_attr($atts['element_id']); 
             
+            $output = '
+                <div class="c-img-text">
+                <div class="c-img-text__wrapper">
+                    <div class="c-img-text__titles">
+                        <p class="c-img-text__title">'.$card_title.'</p>
+                        <div class="c-img-text__mobile-img">
+                            '.$img['thumbnail'].'
+                        </div>
+                        <p class="c-img-text__subtitle">
+                                '.$card_text.'
+                        </p>
 
+                    </div>
+                    <div class="c-img-text__image">
+                        '.$img['thumbnail'].'
+                    </div>
+                </div>
+            </div>   
+            ';
 
-            $output = ' <div class="c-title">
-                          <p class="c-title__title">'.$title_text.'</p>';
-            if($subtitle_text != '') {
-                $output .= '<p class="c-title__subtitle">'.$subtitle_text.' </p>';
-            }
-            $output .= '
-            </div>';
-
-            return $output;             
+            return $output;
 
         }
 
     }
 
-    new vcZimTitle();
+    new vcZimImageCard();
 
 }
 ?>

@@ -107,17 +107,17 @@ if ( ! class_exists( 'vcZimFaqs' ) ) {
 
             
             $template = '<div class="c-faqs">
-            <nav class="c-faqs__nav owl-carousel owl-theme js-faqs-carousel">';
+            <nav class="c-faqs__nav">';
             $count = 0;
             foreach($new_all_value as $accordion){
                  $data_tab = str_replace(' ','_',$accordion['category-name']);
                  $selected_class = ($count == 0) ? 'active' : '';
                  $template .= 
-                    '<div class="item"> <button class="'.$selected_class.' c-support-card js-open-faq-tab" data-tab="'.$data_tab.'">
+                    '<button class="'.$selected_class.' c-support-card js-open-faq-tab" data-tab="'.$data_tab.'">
                         <p class="c-support-card__text">
                         '.$accordion['category-name'].'
                         </p>
-                    </button></div>';
+                    </button>';
              $count++;
             }
 

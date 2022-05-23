@@ -113,7 +113,7 @@ if ( ! class_exists( 'vcZimOpinion' ) ) {
                 <div class="c-opinion '.$extra_class.'">
                     <div class="c-opinion__wrapper">
                         <div class="c-opinion__logo">
-                            <img src="https://www.zimconnections.com/wp-content/uploads/2022/05/zim-tiny-logo.png" alt="">
+                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/zim-tiny-logo.png" alt="">
                         </div>
                         <div class="c-opinion__text">
                             “ '.$opinion_text.'”

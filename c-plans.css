@@ -206,6 +206,9 @@
 .c-plans-carousel.visible {
   display: block;
 }
+.c-plans-carousel .owl-carousel {
+  display: flex !important;
+}
 .c-plans-carousel .owl-dots {
   text-align: center;
   margin-top: 24px;

@@ -162,7 +162,7 @@ if ( ! class_exists( 'vcZimOffices' ) ) {
                                 <p class="c-title__title">Our offices</p>
                             </div>
                             <p class="c-map-info__info-office-title">
-                                London
+                                Office in the United Kingdom
                             </p>
                             <p class="c-map-info__info-office-address">
                             <span> '.$uk_address.'</span>
@@ -171,7 +171,7 @@ if ( ! class_exists( 'vcZimOffices' ) ) {
                         </div>
                         <div class="c-map-info__info-office">
                             <p class="c-map-info__info-office-title">
-                                Madrid
+                                Office in Spain
                             </p>
                             <p class="c-map-info__info-office-address">
                             <span> '.$spain_address.'</span>

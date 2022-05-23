@@ -3,9 +3,9 @@
 
 function functions_js(){
 
-	wp_enqueue_script('functions.js',
+	wp_enqueue_script('functions.min.js',
 
-					get_stylesheet_directory_uri().'/js/functions.js',
+					get_stylesheet_directory_uri().'/js/functions.min.js',
 					array(),
 					'1.0.0'
 					);
@@ -40,6 +40,69 @@ function css_owl(){
 	true	
 		);
 }
+
+/*individual plan shortcode */
+
+add_shortcode('get_zone_plan', 'get_dump');
+
+function get_dump($att) {
+	$att = shortcode_atts(array(
+		'zone' => 'DEU'
+	),$att);
+    
+    $url = 'https://zimconnections-api.live/truphone/products/'.$att['zone'];
+
+    $token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWM0ODk2MDU0NjQ3OWJmNmVlOGEzZDAiLCJpYXQiOjE2NDMwMjMzOTJ9.kJG4DksJ0ju9_HAddmBsx-pZlPcW0K9uAFUqike8_Tg';
+
+    $response = wp_safe_remote_get( 
+        $url, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
+    $body = wp_remote_retrieve_body($response);
+    $data = json_decode($body);
+    
+
+    //var_dump($data);
+
+    $template = '';
+
+    $template .= '<div class="c-plans__local-country visible">';
+    foreach($data as $plan) {                   
+        $template .=  '
+            <div class="c-plans-card">
+                <div class="c-plans-card__top">
+                    <p class="c-plans-card__title">
+                        '.$plan->data.' '.$plan->data_unit.'
+                    </p>
+                    <p class="c-plans-card__logo">
+                        <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                    </p>
+                </div>
+                <div class="c-plans-card__text">
+                    <p class="c-plans-card__duration">'.$plan->duration.' '.$plan->duration_unit.'</p>
+                    <p class="c-plans-card__price">'.$plan->price_currency.' '.$plan->price.'</p>
+                </div>
+                <div class="c-plans-card__buttons">
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
+            </div>';
+    }
+    
+    $template .= '
+</div> <!--fin -->';   
+
+return $template;
+
+}
+
+/* individual plan shortcode */
 
 add_action('wp_enqueue_scripts', 'css_owl');
 
@@ -124,11 +187,13 @@ function obtener_info($atts) {
 
 }
 
+
+
 add_shortcode('get_plans', 'obtener_planes');
 
 function obtener_planes() {
     //url usa
-    $url = 'https://zimconnections-api.live/truphone/products/USA';
+    $url = 'https://zimconnections-api.live/truphone/products/USAPLUS';
     //url europe
     $url_europe = 'https://zimconnections-api.live/truphone/products/EUROPE';
     $url_apac = 'https://zimconnections-api.live/truphone/products/APAC';
@@ -137,6 +202,30 @@ function obtener_planes() {
     //local countries
     //EUROPE    
     $url_austria = 'https://zimconnections-api.live/truphone/products/AUT';
+    $url_belgium = 'https://zimconnections-api.live/truphone/products/BEL';
+    $url_croatia = 'https://zimconnections-api.live/truphone/products/HRV';
+    $url_cyprus = 'https://zimconnections-api.live/truphone/products/CYP';
+    $url_c_r = 'https://zimconnections-api.live/truphone/products/CZE';
+    $url_germay = 'https://zimconnections-api.live/truphone/products/DEU';
+    $url_greece = 'https://zimconnections-api.live/truphone/products/GRC';
+    $url_hungary = 'https://zimconnections-api.live/truphone/products/HUN';
+    $url_ireland = 'https://zimconnections-api.live/truphone/products/IRL';
+    $url_germany = 'https://zimconnections-api.live/truphone/products/DEU';
+    $url_italy = 'https://zimconnections-api.live/truphone/products/ITA';
+    $url_ntr = 'https://zimconnections-api.live/truphone/products/NLD';
+    $url_poland = 'https://zimconnections-api.live/truphone/products/POL';
+    $url_portugal = 'https://zimconnections-api.live/truphone/products/PRT';
+    $url_sweden = 'https://zimconnections-api.live/truphone/products/SWE';
+    $url_switz = 'https://zimconnections-api.live/truphone/products/CHE';
+    $url_uk = 'https://zimconnections-api.live/truphone/products/GBR';
+    $url_fr = 'https://zimconnections-api.live/truphone/products/FRA';
+    $url_esp = 'https://zimconnections-api.live/truphone/products/ESP';
+    $url_usa = 'https://zimconnections-api.live/truphone/products/USA';
+    $hong_k = 'https://zimconnections-api.live/truphone/products/HKG';
+    $israel = 'https://zimconnections-api.live/truphone/products/ISR';
+    $url_japan = 'https://zimconnections-api.live/truphone/products/JPN';
+    $url_australia = 'https://zimconnections-api.live/truphone/products/AUS';
+    $url_norway = 'https://zimconnections-api.live/truphone/products/NOR';
 
     $token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWM0ODk2MDU0NjQ3OWJmNmVlOGEzZDAiLCJpYXQiOjE2NDMwMjMzOTJ9.kJG4DksJ0ju9_HAddmBsx-pZlPcW0K9uAFUqike8_Tg';
 
@@ -192,6 +281,235 @@ function obtener_planes() {
             )
         ),
     );
+    $response_belgium = wp_safe_remote_get( 
+        $url_belgium, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
+    $response_croatia = wp_safe_remote_get( 
+        $url_croatia, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
+    $response_cyprus = wp_safe_remote_get( 
+        $url_cyprus, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
+    $response_c_r = wp_safe_remote_get( 
+        $url_c_r, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
+    $response_germany = wp_safe_remote_get( 
+        $url_germany, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
+    $response_greece = wp_safe_remote_get( 
+        $url_greece, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
+    $response_hungary = wp_safe_remote_get( 
+        $url_hungary, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
+    $response_ireland = wp_safe_remote_get( 
+        $url_ireland, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
+    $response_italy = wp_safe_remote_get( 
+        $url_italy, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
+    $response_ntr = wp_safe_remote_get( 
+        $url_ntr, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
+    $response_norway = wp_safe_remote_get( 
+        $url_norway, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
+    $response_poland = wp_safe_remote_get( 
+        $url_poland, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
+    $response_portugal = wp_safe_remote_get( 
+        $url_portugal, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
+    $response_sweden = wp_safe_remote_get( 
+        $url_sweden, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
+    $response_switz = wp_safe_remote_get( 
+        $url_switz, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
+    $response_uk = wp_safe_remote_get( 
+        $url_uk, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
+    $response_fr = wp_safe_remote_get( 
+        $url_fr, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
+    $response_esp = wp_safe_remote_get( 
+        $url_esp, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
+    $response_usa = wp_safe_remote_get( 
+        $url_usa, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
+    $response_hong_k = wp_safe_remote_get( 
+        $hong_k, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
+    $response_israel = wp_safe_remote_get( 
+        $israel, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
+    $response_japan = wp_safe_remote_get( 
+        $url_japan, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
+
+    $response_australia = wp_safe_remote_get( 
+        $url_australia, 
+        array(
+            'headers'     => array(
+                'Content-Type' => 'application/json; charset=utf-8',
+                'Authorization'      => $token,
+            )
+        ),
+    );
 
     $body = wp_remote_retrieve_body($response);
     $data = json_decode($body);
@@ -212,6 +530,76 @@ function obtener_planes() {
     //EUROPE
     $body_austria = wp_remote_retrieve_body($response_austria);
     $data_austria = json_decode($body_austria);
+
+    
+    $body_belgium = wp_remote_retrieve_body($response_belgium);
+    $data_belgium = json_decode($body_belgium);
+
+    $body_croatia = wp_remote_retrieve_body($response_croatia);
+    $data_croatia = json_decode($body_croatia);
+
+    $body_cyprus = wp_remote_retrieve_body($response_cyprus);
+    $data_cyprus = json_decode($body_cyprus);
+
+    $body_c_r = wp_remote_retrieve_body($response_c_r);
+    $data_c_r = json_decode($body_c_r);
+
+    $body_germany = wp_remote_retrieve_body($response_germany);
+    $data_germany = json_decode($body_germany);
+
+    $body_greece = wp_remote_retrieve_body($response_greece);
+    $data_greece = json_decode($body_greece);
+
+    $body_hungary = wp_remote_retrieve_body($response_hungary);
+    $data_hungary = json_decode($body_hungary);
+
+    $body_ireland = wp_remote_retrieve_body($response_ireland);
+    $data_ireland = json_decode($body_ireland);
+
+    $body_italy = wp_remote_retrieve_body($response_italy);
+    $data_italy = json_decode($body_italy);
+
+    $body_ntr = wp_remote_retrieve_body($response_ntr);
+    $data_ntr = json_decode($body_ntr);
+
+    $body_norway = wp_remote_retrieve_body($response_norway);
+    $data_norway = json_decode($body_norway);
+
+    $body_poland = wp_remote_retrieve_body($response_poland);
+    $data_poland = json_decode($body_poland);
+
+    $body_portugal = wp_remote_retrieve_body($response_portugal);
+    $data_portugal = json_decode($body_portugal);
+
+    $body_sweden = wp_remote_retrieve_body($response_sweden);
+    $data_sweden = json_decode($body_sweden);
+
+    $body_switz = wp_remote_retrieve_body($response_switz);
+    $data_switz = json_decode($body_switz);
+
+    $body_uk = wp_remote_retrieve_body($response_uk);
+    $data_uk = json_decode($body_uk);
+
+    $body_fr = wp_remote_retrieve_body($response_fr);
+    $data_fr = json_decode($body_fr);
+
+    $body_esp = wp_remote_retrieve_body($response_esp);
+    $data_esp = json_decode($body_esp);
+
+    $body_usa = wp_remote_retrieve_body($response_usa);
+    $data_usa = json_decode($body_usa);
+
+    $body_hong_k = wp_remote_retrieve_body($response_hong_k);
+    $data_hong_k = json_decode($body_hong_k);
+
+    $body_israel = wp_remote_retrieve_body($response_israel);
+    $data_israel = json_decode($body_israel);
+
+    $body_japan = wp_remote_retrieve_body($response_japan);
+    $data_japan = json_decode($body_japan);
+
+    $body_australia = wp_remote_retrieve_body($response_australia);
+    $data_australia = json_decode($body_australia);
 
     $template = '
     <div class="c-plans">
@@ -245,8 +633,8 @@ function obtener_planes() {
                                 <p class="c-plans-card__price">'.$plan_apac->price_currency.' '.$plan_apac->price.'</p>
                             </div>
                             <div class="c-plans-card__buttons">
-                                <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
-                                <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
                             </div>
                         </div>';
                 }                    
@@ -264,9 +652,9 @@ function obtener_planes() {
                             <p class="c-plans-card__price">€ 20</p>
                         </div>
                         <div class="c-plans-card__buttons">
-                            <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
-                            <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
-                        </div>
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
                     </div>
                     <div class="c-plans-card">
                         <div class="c-plans-card__top">
@@ -282,9 +670,9 @@ function obtener_planes() {
                             <p class="c-plans-card__price">€ 20</p>
                         </div>
                         <div class="c-plans-card__buttons">
-                            <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
-                            <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
-                        </div>
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
                     </div>
                     <div class="c-plans-card">
                         <div class="c-plans-card__top">
@@ -300,9 +688,9 @@ function obtener_planes() {
                             <p class="c-plans-card__price">€ 20</p>
                         </div>
                         <div class="c-plans-card__buttons">
-                            <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
-                            <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
-                        </div>
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
                     </div>
                     <div class="c-plans-card">
                         <div class="c-plans-card__top">
@@ -318,9 +706,9 @@ function obtener_planes() {
                             <p class="c-plans-card__price">€ 20</p>
                         </div>
                         <div class="c-plans-card__buttons">
-                            <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
-                            <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
-                        </div>
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
                     </div>
                     <div class="c-plans-card">
                         <div class="c-plans-card__top">
@@ -336,9 +724,9 @@ function obtener_planes() {
                             <p class="c-plans-card__price">€ 20</p>
                         </div>
                         <div class="c-plans-card__buttons">
-                            <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
-                            <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
-                        </div>
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
                     </div>-->
                 </div>
             </div>
@@ -367,9 +755,10 @@ function obtener_planes() {
                                 <p class="c-plans-card__duration">'.$plan_eu->duration.' '.$plan_eu->duration_unit.'</p>
                                 <p class="c-plans-card__price">'.$plan_eu->price_currency.' '.$plan_eu->price.'</p>
                             </div>
+                            
                             <div class="c-plans-card__buttons">
-                                <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
-                                <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
                             </div>
                         </div>';
                 }
@@ -390,9 +779,10 @@ function obtener_planes() {
                                 <p class="c-plans-card__duration">'.$plan->duration.' '.$plan->duration_unit.'</p>
                                 <p class="c-plans-card__price">'.$plan->price_currency.' '.$plan->price.'</p>
                             </div>
+                            
                             <div class="c-plans-card__buttons">
-                                <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
-                                <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
                             </div>
                         </div>';
                 }
@@ -413,9 +803,10 @@ function obtener_planes() {
                                 <p class="c-plans-card__duration">'.$plan_apac->duration.' '.$plan_apac->duration_unit.'</p>
                                 <p class="c-plans-card__price">'.$plan_apac->price_currency.' '.$plan_apac->price.'</p>
                             </div>
+                            
                             <div class="c-plans-card__buttons">
-                                <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
-                                <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
                             </div>
                         </div>';
                 }
@@ -438,7 +829,7 @@ function obtener_planes() {
                     <div class="c-plans-carousel js-local-tab visible" data-tab="europe">
                         <div class="c-plans-carousel__carousel">
                             <div class="owl-carousel owl-theme js-plans-carousel">
-                                <a href="#plansIn" class="item">
+                                <a href="#plansIn" class="item js-plans-country" data-country="austria" data-name="Austria">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/aut.jpg" alt=""> 
@@ -446,7 +837,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Austria</p>
                                     </div>
                                 </a>      
-                                <a href="#plansIn" class="item">
+                                <a href="#plansIn" class="item js-plans-country" data-country="belgium" data-name="Belgium">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/bel.jpg" alt=""> 
@@ -454,7 +845,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Belgium</p>
                                     </div>
                                 </a>      
-                                <a href="#plansIn" class="item">
+                                <a href="#plansIn" class="item js-plans-country" data-country="croatia" data-name="Croatia">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/hrv.jpg" alt=""> 
@@ -462,7 +853,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Croatia</p>
                                     </div>
                                 </a>      
-                                <a href="#plansIn" class="item">
+                                <a href="#plansIn" class="item js-plans-country" data-country="cyprus" data-name="Cyprus">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/cyp.jpg" alt=""> 
@@ -470,7 +861,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Cyprus</p>
                                     </div>
                                 </a>      
-                                <a href="#plansIn" class="item">
+                                <a href="#plansIn" class="item js-plans-country" data-country="c_r" data-name="Czech Republic">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/cze.jpg" alt=""> 
@@ -478,7 +869,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Czech Republic</p>
                                     </div>
                                 </a>      
-                                <a href="#plansIn" class="item">
+                                <a href="#plansIn" class="item js-plans-country" data-country="germany" data-name="Germany">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/deu.jpg" alt=""> 
@@ -486,7 +877,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Germany</p>
                                     </div>
                                 </a>      
-                                <a href="#plansIn" class="item">
+                                <a href="#plansIn" data-country="greece" class="item js-plans-country" data-name="Greece">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/grc.jpg" alt=""> 
@@ -494,7 +885,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Greece</p>
                                     </div>
                                 </a>   
-                                <a href="#plansIn" class="item">
+                                <a href="#plansIn" class="item js-plans-country" data-country="hungary" data-name="Hungary">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/hun.jpg" alt=""> 
@@ -503,7 +894,7 @@ function obtener_planes() {
                                     </div>
                                 </a>
 
-                                <a href="#plansIn" class="item">
+                                <a href="#plansIn" class="item js-plans-country" data-country="ireland" data-name="Ireland">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/irl.jpg" alt=""> 
@@ -511,7 +902,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Ireland</p>
                                     </div>
                                 </a>   
-                                <a href="#plansIn" class="item">
+                                <a href="#plansIn" class="item js-plans-country" data-country="italy" data-name="Italy">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/ita.jpg" alt=""> 
@@ -519,7 +910,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Italy</p>
                                     </div>
                                 </a>    
-                                <a href="#plansIn" class="item">
+                                <a href="#plansIn" class="item js-plans-country" data-country="ntr" data-name="Netherlands">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/nld.jpg" alt=""> 
@@ -527,7 +918,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Netherlands</p>
                                     </div>
                                 </a>  
-                                <a href="#plansIn" class="item">
+                                <a href="#plansIn" class="item js-plans-country" data-country="norway" data-name="Norway">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/nor.jpg" alt=""> 
@@ -535,7 +926,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Norway</p>
                                     </div>
                                 </a>     
-                                <a href="#plansIn" class="item">
+                                <a href="#plansIn" class="item js-plans-country" data-country="poland" data-name="Poland">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/pol.jpg" alt=""> 
@@ -543,7 +934,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Poland</p>
                                     </div>
                                 </a>       
-                                <a href="#plansIn" class="item">
+                                <a href="#plansIn" class="item js-plans-country" data-country="portugal" data-name="Portugal">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/prt.jpg" alt=""> 
@@ -551,15 +942,15 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Portugal</p>
                                     </div>
                                 </a>         
-                                <a href="#plansIn" class="item">
-                                    <div class="c-plans-carousel-card">
+                                <a href="#plansIn" class="item js-plans-country" data-name="Sweden">
+                                    <div class="c-plans-carousel-card" data-country="sweden">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/swe.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Sweden</p>
                                     </div>
                                 </a>   
-                                <a href="#plansIn" class="item">
+                                <a href="#plansIn" class="item js-plans-country" data-country="switz" data-name="Switzerland">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/che.jpg" alt=""> 
@@ -567,7 +958,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Switzerland</p>
                                     </div>
                                 </a>   
-                                <a href="#plansIn" class="item">
+                                <a href="#plansIn" class="item js-plans-country" data-country="uk" data-name="UK">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/gbr.jpg" alt=""> 
@@ -575,7 +966,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">UK</p>
                                     </div>
                                 </a>   
-                                <a href="#plansIn" class="item">
+                                <a href="#plansIn" class="item js-plans-country" data-country="fr" data-name="France">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/fra.jpg" alt=""> 
@@ -584,7 +975,7 @@ function obtener_planes() {
                                     </div>
                                 </a>  
                                  
-                                <a href="#plansIn" class="item">
+                                <a href="#plansIn" class="item js-plans-country" data-country="esp" data-name="Spain">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/esp.jpg" alt=""> 
@@ -593,7 +984,7 @@ function obtener_planes() {
                                     </div>
                                 </a> 
                                  
-                                <a href="#plansIn" class="item">
+                                <a href="#plansIn" class="item js-no-active-card" data-country="albania">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/alb.jpg" alt=""> 
@@ -606,8 +997,16 @@ function obtener_planes() {
                     </div> 
                     <div class="c-plans-carousel js-local-tab" data-tab="america">
                         <div class="c-plans-carousel__carousel">
-                            <div class="owl-carousel owl-theme js-plans-carousel">
-                                <a href="#plansIn" class="item">
+                            <div class="owl-carousel owl-theme js-plans-carousel">        
+                                <a href="#plansIn" class="item js-plans-country" data-name="USA">
+                                    <div class="c-plans-carousel-card" data-country="usa">
+                                        <figure>
+                                            <img src="https://zimconnections-api.live/destinationsImgs/usa.jpg" alt=""> 
+                                        </figure>
+                                        <p class="c-plans-carousel-card__title">USA</p>
+                                    </div>
+                                </a> 
+                                <a href="#" class="item  js-no-active-card">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/per.jpg" alt=""> 
@@ -615,7 +1014,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Peru</p>
                                     </div>
                                 </a>      
-                                <a href="#plansIn" class="item">
+                                <a href="#" class="item  js-no-active-card">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/br.jpg" alt=""> 
@@ -623,7 +1022,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Brazil</p>
                                     </div>
                                 </a>      
-                                <a href="#plansIn" class="item">
+                                <a href="#" class="item  js-no-active-card">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/arg.jpg" alt=""> 
@@ -631,7 +1030,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Argentina</p>
                                     </div>
                                 </a>      
-                                <a href="#plansIn" class="item">
+                                <a href="#" class="item  js-no-active-card">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/abw.jpg" alt=""> 
@@ -639,7 +1038,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Aruba</p>
                                     </div>
                                 </a>      
-                                <a href="#plansIn" class="item">
+                                <a href="#" class="item  js-no-active-card">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/ury.jpg" alt=""> 
@@ -647,7 +1046,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Uruguay</p>
                                     </div>
                                 </a>      
-                                <a href="#plansIn" class="item">
+                                <a href="#" class="item  js-no-active-card">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/tto.jpg" alt=""> 
@@ -655,23 +1054,15 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Trinidad</p>
                                     </div>
                                 </a>      
-                                <a href="#plansIn" class="item">
+                                <a href="#" class="item  js-no-active-card">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/sur.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Suriname</p>
                                     </div>
-                                </a>        
-                                <a href="#plansIn" class="item">
-                                    <div class="c-plans-carousel-card">
-                                        <figure>
-                                            <img src="https://zimconnections-api.live/destinationsImgs/usa.jpg" alt=""> 
-                                        </figure>
-                                        <p class="c-plans-carousel-card__title">USA</p>
-                                    </div>
-                                </a>      
-                                <a href="#plansIn" class="item">
+                                </a>     
+                                <a href="#" class="item  js-no-active-card">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/jam.jpg" alt=""> 
@@ -679,7 +1070,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Jamaica</p>
                                     </div>
                                 </a>      
-                                <a href="#plansIn" class="item">
+                                <a href="#" class="item  js-no-active-card">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/aia.jpg" alt=""> 
@@ -694,15 +1085,15 @@ function obtener_planes() {
                     <div class="c-plans-carousel js-local-tab" data-tab="asia">
                         <div class="c-plans-carousel__carousel">
                             <div class="owl-carousel owl-theme js-plans-carousel">
-                                <a href="#plansIn" class="item">
-                                    <div class="c-plans-carousel-card">
+                                <a href="#plansIn" class="item js-plans-country" data-name="Hong Kong">
+                                    <div class="c-plans-carousel-card" data-country="hong_k">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/hkg.jpg" alt=""> 
                                         </figure>
                                         <p class="c-plans-carousel-card__title">Hong Kong</p>
                                     </div>
                                 </a>      
-                                <a href="#plansIn" class="item">
+                                <a href="#plansIn" class="item js-plans-country" data-country="israel" data-name="Israel">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/isr.jpg" alt=""> 
@@ -710,7 +1101,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Israel</p>
                                     </div>
                                 </a>      
-                                <a href="#plansIn" class="item">
+                                <a href="#plansIn" class="item js-plans-country" data-country="japan" data-name="Japan">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/jpn.jpg" alt=""> 
@@ -718,7 +1109,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Japan</p>
                                     </div>
                                 </a>      
-                                <a href="#plansIn" class="item">
+                                <a href="#" class="item  js-no-active-card">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/chn.jpg" alt=""> 
@@ -726,7 +1117,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">China</p>
                                     </div>
                                 </a>      
-                                <a href="#plansIn" class="item">
+                                <a href="#" class="item  js-no-active-card">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/ind.jpg" alt=""> 
@@ -734,7 +1125,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">India</p>
                                     </div>
                                 </a>      
-                                <a href="#plansIn" class="item">
+                                <a href="#" class="item  js-no-active-card">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/idn.jpg" alt=""> 
@@ -742,7 +1133,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Indonesia</p>
                                     </div>
                                 </a>      
-                                <a href="#plansIn" class="item">
+                                <a href="#" class="item  js-no-active-card">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/mys.jpg" alt=""> 
@@ -750,7 +1141,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Malaysia</p>
                                     </div>
                                 </a>       
-                                <a href="#plansIn" class="item">
+                                <a href="#" class="item  js-no-active-card">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/sgp.jpg" alt=""> 
@@ -758,7 +1149,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Singapore</p>
                                     </div>
                                 </a>        
-                                <a href="#plansIn" class="item">
+                                <a href="#" class="item  js-no-active-card">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/twn.jpg" alt=""> 
@@ -766,7 +1157,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Taiwan </p>
                                     </div>
                                 </a>          
-                                <a href="#plansIn" class="item">
+                                <a href="#" class="item  js-no-active-card">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/tha.jpg" alt=""> 
@@ -774,7 +1165,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Thailand</p>
                                     </div>
                                 </a>     
-                                <a href="#plansIn" class="item">
+                                <a href="#" class="item  js-no-active-card">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/kor.jpg" alt=""> 
@@ -782,7 +1173,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">South Korea</p>
                                     </div>
                                 </a>              
-                                <a href="#plansIn" class="item">
+                                <a href="#" class="item  js-no-active-card">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/tur.jpg" alt=""> 
@@ -797,7 +1188,7 @@ function obtener_planes() {
                     <div class="c-plans-carousel js-local-tab" data-tab="oceania">
                         <div class="c-plans-carousel__carousel">
                             <div class="owl-carousel owl-theme js-plans-carousel">
-                                <a href="#plansIn" class="item">
+                                <a href="#plansIn" class="item js-plans-country" data-country="australia"  data-name="Australia">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/aus.jpg" alt=""> 
@@ -812,7 +1203,7 @@ function obtener_planes() {
                     <div class="c-plans-carousel js-local-tab" data-tab="africa">
                         <div class="c-plans-carousel__carousel">
                             <div class="owl-carousel owl-theme js-plans-carousel">
-                                <a href="#plansIn" class="item">
+                                <a href="#" class="item  js-no-active-card">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/zaf.jpg" alt=""> 
@@ -820,7 +1211,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">South Africa</p>
                                     </div>
                                 </a>      
-                                <a href="#plansIn" class="item">
+                                <a href="#" class="item  js-no-active-card">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/ken.jpg" alt=""> 
@@ -828,7 +1219,7 @@ function obtener_planes() {
                                         <p class="c-plans-carousel-card__title">Kenya</p>
                                     </div>
                                 </a>      
-                                <a href="#plansIn" class="item">
+                                <a href="#" class="item  js-no-active-card">
                                     <div class="c-plans-carousel-card">
                                         <figure>
                                             <img src="https://zimconnections-api.live/destinationsImgs/gha.jpg" alt=""> 
@@ -846,30 +1237,631 @@ function obtener_planes() {
                         <h2 class="c-title__title">Plans in <span class="js-local-name">Austria</span></h2>
                     </div>
 
-                    <div class="c-plans__local-country js-local-country-tab" data-country="austria">';
-                    foreach($data_austria as $plan_austria) {                   
+                    <div class="c-plans__local-country js-local-country-tab visible" data-country="austria">';
+                        foreach($data_austria as $plan_austria) {                   
+                            $template .=  '
+                                <div class="c-plans-card">
+                                    <div class="c-plans-card__top">
+                                        <p class="c-plans-card__title">
+                                            '.$plan_austria->data.' '.$plan_austria->data_unit.'
+                                        </p>
+                                        <p class="c-plans-card__logo">
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                                        </p>
+                                    </div>
+                                    <div class="c-plans-card__text">
+                                        <p class="c-plans-card__duration">'.$plan_austria->duration.' '.$plan_austria->duration_unit.'</p>
+                                        <p class="c-plans-card__price">'.$plan_austria->price_currency.' '.$plan_austria->price.'</p>
+                                    </div>
+                                    <div class="c-plans-card__buttons">
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
+                                </div>';
+                        }
+                        
+                        $template .= '
+                    </div> <!--fin austria-->
+
+                    <div class="c-plans__local-country js-local-country-tab" data-country="belgium">';
+                        foreach($data_belgium as $plan_belgium) {                   
+                            $template .=  '
+                                <div class="c-plans-card">
+                                    <div class="c-plans-card__top">
+                                        <p class="c-plans-card__title">
+                                            '.$plan_belgium->data.' '.$plan_belgium->data_unit.'
+                                        </p>
+                                        <p class="c-plans-card__logo">
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                                        </p>
+                                    </div>
+                                    <div class="c-plans-card__text">
+                                        <p class="c-plans-card__duration">'.$plan_belgium->duration.' '.$plan_belgium->duration_unit.'</p>
+                                        <p class="c-plans-card__price">'.$plan_belgium->price_currency.' '.$plan_belgium->price.'</p>
+                                    </div>
+                                    <div class="c-plans-card__buttons">
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
+                                </div>';
+                        }
+                        
+                        $template .= '
+                    </div> <!--fin belgium-->
+
+                    <div class="c-plans__local-country js-local-country-tab" data-country="croatia">';
+                        foreach($data_croatia as $plan_croatia) {                   
+                            $template .=  '
+                                <div class="c-plans-card">
+                                    <div class="c-plans-card__top">
+                                        <p class="c-plans-card__title">
+                                            '.$plan_croatia->data.' '.$plan_croatia->data_unit.'
+                                        </p>
+                                        <p class="c-plans-card__logo">
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                                        </p>
+                                    </div>
+                                    <div class="c-plans-card__text">
+                                        <p class="c-plans-card__duration">'.$plan_croatia->duration.' '.$plan_croatia->duration_unit.'</p>
+                                        <p class="c-plans-card__price">'.$plan_croatia->price_currency.' '.$plan_croatia->price.'</p>
+                                    </div>
+                                    <div class="c-plans-card__buttons">
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
+                                </div>';
+                        }
+                        
+                        $template .= '
+                    </div> <!--fin croatia-->
+
+                    <div class="c-plans__local-country js-local-country-tab" data-country="cyprus">';
+                        foreach($data_cyprus as $plan_cyprus) {                   
+                            $template .=  '
+                                <div class="c-plans-card">
+                                    <div class="c-plans-card__top">
+                                        <p class="c-plans-card__title">
+                                            '.$plan_cyprus->data.' '.$plan_cyprus->data_unit.'
+                                        </p>
+                                        <p class="c-plans-card__logo">
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                                        </p>
+                                    </div>
+                                    <div class="c-plans-card__text">
+                                        <p class="c-plans-card__duration">'.$plan_cyprus->duration.' '.$plan_cyprus->duration_unit.'</p>
+                                        <p class="c-plans-card__price">'.$plan_cyprus->price_currency.' '.$plan_cyprus->price.'</p>
+                                    </div>
+                                    <div class="c-plans-card__buttons">
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
+                                </div>';
+                        }
+                        
+                        $template .= '
+                    </div> <!--fin cyprus-->
+
+                    <div class="c-plans__local-country js-local-country-tab" data-country="c_r">';
+                        foreach($data_c_r as $plan_c_r) {                   
+                            $template .=  '
+                                <div class="c-plans-card">
+                                    <div class="c-plans-card__top">
+                                        <p class="c-plans-card__title">
+                                            '.$plan_c_r->data.' '.$plan_c_r->data_unit.'
+                                        </p>
+                                        <p class="c-plans-card__logo">
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                                        </p>
+                                    </div>
+                                    <div class="c-plans-card__text">
+                                        <p class="c-plans-card__duration">'.$plan_c_r->duration.' '.$plan_c_r->duration_unit.'</p>
+                                        <p class="c-plans-card__price">'.$plan_c_r->price_currency.' '.$plan_c_r->price.'</p>
+                                    </div>
+                                    <div class="c-plans-card__buttons">
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
+                                </div>';
+                        }
+                        
+                        $template .= '
+                    </div> <!--fin c_r-->
+
+                    <div class="c-plans__local-country js-local-country-tab" data-country="germany">';
+                        foreach($data_germany as $plan_germany) {                   
+                            $template .=  '
+                                <div class="c-plans-card">
+                                    <div class="c-plans-card__top">
+                                        <p class="c-plans-card__title">
+                                            '.$plan_germany->data.' '.$plan_germany->data_unit.'
+                                        </p>
+                                        <p class="c-plans-card__logo">
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                                        </p>
+                                    </div>
+                                    <div class="c-plans-card__text">
+                                        <p class="c-plans-card__duration">'.$plan_germany->duration.' '.$plan_germany->duration_unit.'</p>
+                                        <p class="c-plans-card__price">'.$plan_germany->price_currency.' '.$plan_germany->price.'</p>
+                                    </div>
+                                    <div class="c-plans-card__buttons">
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
+                                </div>';
+                        }
+                        
+                        $template .= '
+                    </div> <!--fin germany-->
+
+                    <div class="c-plans__local-country js-local-country-tab" data-country="greece">';
+                        foreach($data_greece as $plan_greece) {                   
+                            $template .=  '
+                                <div class="c-plans-card">
+                                    <div class="c-plans-card__top">
+                                        <p class="c-plans-card__title">
+                                            '.$plan_greece->data.' '.$plan_greece->data_unit.'
+                                        </p>
+                                        <p class="c-plans-card__logo">
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                                        </p>
+                                    </div>
+                                    <div class="c-plans-card__text">
+                                        <p class="c-plans-card__duration">'.$plan_greece->duration.' '.$plan_greece->duration_unit.'</p>
+                                        <p class="c-plans-card__price">'.$plan_greece->price_currency.' '.$plan_greece->price.'</p>
+                                    </div>
+                                    <div class="c-plans-card__buttons">
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
+                                </div>';
+                        }
+                        
+                        $template .= '
+                    </div> <!--fin greece-->
+
+                    <div class="c-plans__local-country js-local-country-tab" data-country="hungary">';
+                        foreach($data_hungary as $plan_hungary) {                   
+                            $template .=  '
+                                <div class="c-plans-card">
+                                    <div class="c-plans-card__top">
+                                        <p class="c-plans-card__title">
+                                            '.$plan_hungary->data.' '.$plan_hungary->data_unit.'
+                                        </p>
+                                        <p class="c-plans-card__logo">
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                                        </p>
+                                    </div>
+                                    <div class="c-plans-card__text">
+                                        <p class="c-plans-card__duration">'.$plan_hungary->duration.' '.$plan_hungary->duration_unit.'</p>
+                                        <p class="c-plans-card__price">'.$plan_hungary->price_currency.' '.$plan_hungary->price.'</p>
+                                    </div>
+                                    <div class="c-plans-card__buttons">
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
+                                </div>';
+                        }
+                        
+                        $template .= '
+                    </div> <!--fin hungary-->
+
+                    <div class="c-plans__local-country js-local-country-tab" data-country="ireland">';
+                        foreach($data_ireland as $plan_ireland) {                   
+                            $template .=  '
+                                <div class="c-plans-card">
+                                    <div class="c-plans-card__top">
+                                        <p class="c-plans-card__title">
+                                            '.$plan_ireland->data.' '.$plan_ireland->data_unit.'
+                                        </p>
+                                        <p class="c-plans-card__logo">
+                                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                                        </p>
+                                    </div>
+                                    <div class="c-plans-card__text">
+                                        <p class="c-plans-card__duration">'.$plan_ireland->duration.' '.$plan_ireland->duration_unit.'</p>
+                                        <p class="c-plans-card__price">'.$plan_ireland->price_currency.' '.$plan_ireland->price.'</p>
+                                    </div>
+                                    <div class="c-plans-card__buttons">
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
+                                </div>';
+                        }
+                        
+                        $template .= '
+                    </div> <!--fin ireland-->
+
+                    <div class="c-plans__local-country js-local-country-tab" data-country="italy">';
+                    foreach($data_italy as $plan_italy) {                   
                         $template .=  '
                             <div class="c-plans-card">
                                 <div class="c-plans-card__top">
                                     <p class="c-plans-card__title">
-                                        '.$plan_austria->data.' '.$plan_austria->data_unit.'
+                                        '.$plan_italy->data.' '.$plan_italy->data_unit.'
                                     </p>
                                     <p class="c-plans-card__logo">
                                         <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
                                     </p>
                                 </div>
                                 <div class="c-plans-card__text">
-                                    <p class="c-plans-card__duration">'.$plan_austria->duration.' '.$plan_austria->duration_unit.'</p>
-                                    <p class="c-plans-card__price">'.$plan_austria->price_currency.' '.$plan_austria->price.'</p>
+                                    <p class="c-plans-card__duration">'.$plan_italy->duration.' '.$plan_italy->duration_unit.'</p>
+                                    <p class="c-plans-card__price">'.$plan_italy->price_currency.' '.$plan_italy->price.'</p>
                                 </div>
+                                
                                 <div class="c-plans-card__buttons">
-                                    <a href="#" class="c-button c-button--sm c-button--primary">Buy</a>
-                                    <a href="#" class="c-button c-button--sm c-button--secondary">Add to cart</a>
-                                </div>
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
                             </div>';
                     }
-                      
-                $template .= '</div>
+                    
+                    $template .= '
+                </div> <!--fin italy-->
+
+                <div class="c-plans__local-country js-local-country-tab" data-country="ntr">';
+                    foreach($data_ntr as $plan_ntr) {                   
+                        $template .=  '
+                            <div class="c-plans-card">
+                                <div class="c-plans-card__top">
+                                    <p class="c-plans-card__title">
+                                        '.$plan_ntr->data.' '.$plan_ntr->data_unit.'
+                                    </p>
+                                    <p class="c-plans-card__logo">
+                                        <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                                    </p>
+                                </div>
+                                <div class="c-plans-card__text">
+                                    <p class="c-plans-card__duration">'.$plan_ntr->duration.' '.$plan_ntr->duration_unit.'</p>
+                                    <p class="c-plans-card__price">'.$plan_ntr->price_currency.' '.$plan_ntr->price.'</p>
+                                </div>
+                                
+                                <div class="c-plans-card__buttons">
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
+                            </div>';
+                    }
+                    
+                    $template .= '
+                </div> <!--fin ntr-->
+
+                <div class="c-plans__local-country js-local-country-tab" data-country="norway">';
+                foreach($data_norway as $plan_norway) {                   
+                    $template .=  '
+                        <div class="c-plans-card">
+                            <div class="c-plans-card__top">
+                                <p class="c-plans-card__title">
+                                    '.$plan_norway->data.' '.$plan_norway->data_unit.'
+                                </p>
+                                <p class="c-plans-card__logo">
+                                    <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                                </p>
+                            </div>
+                            <div class="c-plans-card__text">
+                                <p class="c-plans-card__duration">'.$plan_norway->duration.' '.$plan_norway->duration_unit.'</p>
+                                <p class="c-plans-card__price">'.$plan_norway->price_currency.' '.$plan_norway->price.'</p>
+                            </div>
+                            <div class="c-plans-card__buttons">
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
+                        </div>';
+                }
+                
+                $template .= '
+            </div> <!--fin norway-->
+
+            <div class="c-plans__local-country js-local-country-tab" data-country="poland">';
+                foreach($data_poland as $plan_poland) {                   
+                    $template .=  '
+                        <div class="c-plans-card">
+                            <div class="c-plans-card__top">
+                                <p class="c-plans-card__title">
+                                    '.$plan_poland->data.' '.$plan_poland->data_unit.'
+                                </p>
+                                <p class="c-plans-card__logo">
+                                    <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                                </p>
+                            </div>
+                            <div class="c-plans-card__text">
+                                <p class="c-plans-card__duration">'.$plan_poland->duration.' '.$plan_poland->duration_unit.'</p>
+                                <p class="c-plans-card__price">'.$plan_poland->price_currency.' '.$plan_poland->price.'</p>
+                            </div>
+                            <div class="c-plans-card__buttons">
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
+                        </div>';
+                }
+                
+                $template .= '
+            </div> <!--fin poland-->
+
+            <div class="c-plans__local-country js-local-country-tab" data-country="portugal">';
+                foreach($data_portugal as $plan_portugal) {                   
+                    $template .=  '
+                        <div class="c-plans-card">
+                            <div class="c-plans-card__top">
+                                <p class="c-plans-card__title">
+                                    '.$plan_portugal->data.' '.$plan_portugal->data_unit.'
+                                </p>
+                                <p class="c-plans-card__logo">
+                                    <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                                </p>
+                            </div>
+                            <div class="c-plans-card__text">
+                                <p class="c-plans-card__duration">'.$plan_portugal->duration.' '.$plan_portugal->duration_unit.'</p>
+                                <p class="c-plans-card__price">'.$plan_portugal->price_currency.' '.$plan_portugal->price.'</p>
+                            </div>
+                            <div class="c-plans-card__buttons">
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
+                        </div>';
+                }
+                
+                $template .= '
+            </div> <!--fin portugal-->
+
+            <div class="c-plans__local-country js-local-country-tab" data-country="sweden">';
+                foreach($data_sweden as $plan_sweden) {                   
+                    $template .=  '
+                        <div class="c-plans-card">
+                            <div class="c-plans-card__top">
+                                <p class="c-plans-card__title">
+                                    '.$plan_sweden->data.' '.$plan_sweden->data_unit.'
+                                </p>
+                                <p class="c-plans-card__logo">
+                                    <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                                </p>
+                            </div>
+                            <div class="c-plans-card__text">
+                                <p class="c-plans-card__duration">'.$plan_sweden->duration.' '.$plan_sweden->duration_unit.'</p>
+                                <p class="c-plans-card__price">'.$plan_sweden->price_currency.' '.$plan_sweden->price.'</p>
+                            </div>
+                            <div class="c-plans-card__buttons">
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
+                        </div>';
+                }
+                
+                $template .= '
+            </div> <!--fin sweden-->
+
+            <div class="c-plans__local-country js-local-country-tab" data-country="switz">';
+                foreach($data_switz as $plan_switz) {                   
+                    $template .=  '
+                        <div class="c-plans-card">
+                            <div class="c-plans-card__top">
+                                <p class="c-plans-card__title">
+                                    '.$plan_switz->data.' '.$plan_switz->data_unit.'
+                                </p>
+                                <p class="c-plans-card__logo">
+                                    <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                                </p>
+                            </div>
+                            <div class="c-plans-card__text">
+                                <p class="c-plans-card__duration">'.$plan_switz->duration.' '.$plan_switz->duration_unit.'</p>
+                                <p class="c-plans-card__price">'.$plan_switz->price_currency.' '.$plan_switz->price.'</p>
+                            </div>
+                            <div class="c-plans-card__buttons">
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
+                        </div>';
+                }
+                
+                $template .= '
+            </div> <!--fin switz-->
+
+            <div class="c-plans__local-country js-local-country-tab" data-country="uk">';
+            foreach($data_uk as $plan_uk) {                   
+                $template .=  '
+                    <div class="c-plans-card">
+                        <div class="c-plans-card__top">
+                            <p class="c-plans-card__title">
+                                '.$plan_uk->data.' '.$plan_uk->data_unit.'
+                            </p>
+                            <p class="c-plans-card__logo">
+                                <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                            </p>
+                        </div>
+                        <div class="c-plans-card__text">
+                            <p class="c-plans-card__duration">'.$plan_uk->duration.' '.$plan_uk->duration_unit.'</p>
+                            <p class="c-plans-card__price">'.$plan_uk->price_currency.' '.$plan_uk->price.'</p>
+                        </div>
+                        <div class="c-plans-card__buttons">
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
+                    </div>';
+            }
+            
+            $template .= '
+        </div> <!--fin uk-->
+
+        <div class="c-plans__local-country js-local-country-tab" data-country="fr">';
+            foreach($data_fr as $plan_fr) {                   
+                $template .=  '
+                    <div class="c-plans-card">
+                        <div class="c-plans-card__top">
+                            <p class="c-plans-card__title">
+                                '.$plan_fr->data.' '.$plan_fr->data_unit.'
+                            </p>
+                            <p class="c-plans-card__logo">
+                                <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                            </p>
+                        </div>
+                        <div class="c-plans-card__text">
+                            <p class="c-plans-card__duration">'.$plan_fr->duration.' '.$plan_fr->duration_unit.'</p>
+                            <p class="c-plans-card__price">'.$plan_fr->price_currency.' '.$plan_fr->price.'</p>
+                        </div>
+                        <div class="c-plans-card__buttons">
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
+                    </div>';
+            }
+            
+            $template .= '
+        </div> <!--fin fr-->
+        <div class="c-plans__local-country js-local-country-tab" data-country="esp">';
+        foreach($data_esp as $plan_esp) {                   
+            $template .=  '
+                <div class="c-plans-card">
+                    <div class="c-plans-card__top">
+                        <p class="c-plans-card__title">
+                            '.$plan_esp->data.' '.$plan_esp->data_unit.'
+                        </p>
+                        <p class="c-plans-card__logo">
+                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                        </p>
+                    </div>
+                    <div class="c-plans-card__text">
+                        <p class="c-plans-card__duration">'.$plan_esp->duration.' '.$plan_esp->duration_unit.'</p>
+                        <p class="c-plans-card__price">'.$plan_esp->price_currency.' '.$plan_esp->price.'</p>
+                    </div>
+                    
+                    <div class="c-plans-card__buttons">
+                    <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                </div>
+                </div>';
+        }
+        
+        $template .= '
+    </div> <!--fin esp-->
+
+    <div class="c-plans__local-country js-local-country-tab" data-country="usa">';
+        foreach($data_usa as $plan_usa) {                   
+            $template .=  '
+                <div class="c-plans-card">
+                    <div class="c-plans-card__top">
+                        <p class="c-plans-card__title">
+                            '.$plan_usa->data.' '.$plan_usa->data_unit.'
+                        </p>
+                        <p class="c-plans-card__logo">
+                            <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                        </p>
+                    </div>
+                    <div class="c-plans-card__text">
+                        <p class="c-plans-card__duration">'.$plan_usa->duration.' '.$plan_usa->duration_unit.'</p>
+                        <p class="c-plans-card__price">'.$plan_usa->price_currency.' '.$plan_usa->price.'</p>
+                    </div>
+                    
+                    <div class="c-plans-card__buttons">
+                    <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                </div>
+                </div>';
+        }
+        
+        $template .= '
+    </div> <!--fin usa-->
+
+    <div class="c-plans__local-country js-local-country-tab" data-country="hong_k">';
+    foreach($data_hong_k as $plan_hong_k) {                   
+        $template .=  '
+            <div class="c-plans-card">
+                <div class="c-plans-card__top">
+                    <p class="c-plans-card__title">
+                        '.$plan_hong_k->data.' '.$plan_hong_k->data_unit.'
+                    </p>
+                    <p class="c-plans-card__logo">
+                        <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                    </p>
+                </div>
+                <div class="c-plans-card__text">
+                    <p class="c-plans-card__duration">'.$plan_hong_k->duration.' '.$plan_hong_k->duration_unit.'</p>
+                    <p class="c-plans-card__price">'.$plan_hong_k->price_currency.' '.$plan_hong_k->price.'</p>
+                </div>
+                <div class="c-plans-card__buttons">
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
+            </div>';
+    }
+    
+    $template .= '
+</div> <!--fin hong_k-->
+
+<div class="c-plans__local-country js-local-country-tab" data-country="israel">';
+    foreach($data_israel as $plan_israel) {                   
+        $template .=  '
+            <div class="c-plans-card">
+                <div class="c-plans-card__top">
+                    <p class="c-plans-card__title">
+                        '.$plan_israel->data.' '.$plan_israel->data_unit.'
+                    </p>
+                    <p class="c-plans-card__logo">
+                        <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                    </p>
+                </div>
+                <div class="c-plans-card__text">
+                    <p class="c-plans-card__duration">'.$plan_israel->duration.' '.$plan_israel->duration_unit.'</p>
+                    <p class="c-plans-card__price">'.$plan_israel->price_currency.' '.$plan_israel->price.'</p>
+                </div>
+                <div class="c-plans-card__buttons">
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
+            </div>';
+    }
+    
+    $template .= '
+</div> <!--fin israel-->
+
+<div class="c-plans__local-country js-local-country-tab" data-country="japan">';
+    foreach($data_japan as $plan_japan) {                   
+        $template .=  '
+            <div class="c-plans-card">
+                <div class="c-plans-card__top">
+                    <p class="c-plans-card__title">
+                        '.$plan_japan->data.' '.$plan_japan->data_unit.'
+                    </p>
+                    <p class="c-plans-card__logo">
+                        <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                    </p>
+                </div>
+                <div class="c-plans-card__text">
+                    <p class="c-plans-card__duration">'.$plan_japan->duration.' '.$plan_japan->duration_unit.'</p>
+                    <p class="c-plans-card__price">'.$plan_japan->price_currency.' '.$plan_japan->price.'</p>
+                </div>
+                <div class="c-plans-card__buttons">
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
+            </div>';
+    }
+    
+    $template .= '
+</div> <!--fin japan-->
+<div class="c-plans__local-country js-local-country-tab" data-country="australia">';
+    foreach($data_australia as $plan_australia) {                   
+        $template .=  '
+            <div class="c-plans-card">
+                <div class="c-plans-card__top">
+                    <p class="c-plans-card__title">
+                        '.$plan_australia->data.' '.$plan_australia->data_unit.'
+                    </p>
+                    <p class="c-plans-card__logo">
+                        <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/logo-truphone-small.png" alt="">
+                    </p>
+                </div>
+                <div class="c-plans-card__text">
+                    <p class="c-plans-card__duration">'.$plan_australia->duration.' '.$plan_australia->duration_unit.'</p>
+                    <p class="c-plans-card__price">'.$plan_australia->price_currency.' '.$plan_australia->price.'</p>
+                </div>
+                <div class="c-plans-card__buttons">
+                                <a href="https://apps.apple.com/es/app/zim/id1611244114" target="_blank" class="c-button c-button--sm c-button--primary">Apple Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zim_cli" target="_blank" class="c-button c-button--sm c-button--secondary">Play Store</a>
+                            </div>
+            </div>';
+    }
+    
+    $template .= '
+</div> <!--fin australia-->
 
                 </div> 
             </div>
@@ -881,29 +1873,6 @@ function obtener_planes() {
 
 }
 
-add_shortcode('var_dump', 'get_dump');
-function get_dump() {
-    
-    $url = 'https://zimconnections-api.live/truphone/products/USA';
-    $token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWM0ODk2MDU0NjQ3OWJmNmVlOGEzZDAiLCJpYXQiOjE2NDMwMjMzOTJ9.kJG4DksJ0ju9_HAddmBsx-pZlPcW0K9uAFUqike8_Tg';
-
-    $response = wp_safe_remote_get( 
-        $url, 
-        array(
-            'headers'     => array(
-                'Content-Type' => 'application/json; charset=utf-8',
-                'Authorization'      => $token,
-            )
-        ),
-    );
-
-    $body = wp_remote_retrieve_body($response);
-    $data = json_decode($body);
-    
-
-    var_dump($data);
-
-}
 
 require_once( 'vc-components/vc-soda-blockquote.php' ); 
 require_once( 'vc-components/vc-zim-image-card.php' ); 

@@ -163,19 +163,19 @@ if ( ! class_exists( 'vcZimHero' ) ) {
             <div class="c-hero__wrapper">
                 <div class="c-hero__titles">
                     <p class="c-hero__title">
-                        '.$card_title.' </br> <span class="c-hero__title-color"> '.$highlighted_title.' </span>
+                        '.$card_title.' <span class="c-hero__title-color"> '.$highlighted_title.' </span>
                     </p>
-                    <div class="ush_search_1 elm_in_header layout_simple c-hero__search-form"><div class="w-search-form"><form class="w-form-row for_text" action="https://www.zimconnections.com" method="get"><div class="w-form-row-field"><input type="text" name="s" id="us_form_search_s" placeholder="Search for country, plan..." aria-label="Search for country, plan..." class="c-hero__search-form-input" value=""></div><button class="w-search-form-btn w-btn" type="submit" aria-label="Search"><i class="fas fa-search"></i></button></form></div></div>
+                    <div class="ush_search_1 elm_in_header layout_simple c-hero__search-form"><div class="w-search-form"><form class="w-form-row for_text" action="https://www.zimconnections.com/des/" method="get"><div class="w-form-row-field"><input type="text" name="s" id="us_form_search_s" placeholder="Search for country, plan..." aria-label="Search for country, plan..." class="c-hero__search-form-input" value=""></div><button class="w-search-form-btn w-btn" type="submit" aria-label="Search"><i class="fas fa-search"></i></button></form></div></div>
                     <p class="c-hero__subtitle">
                         '.$card_subtitle.'
                     </p>
                 </div>
                 <div class="c-hero__download">
                     <a href="'.$ios_url.'">
-                        <img src="https://www.zimconnections.com/wp-content/uploads/2022/05/apple-download.png" alt="">
+                        <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/apple-download.png" alt="">
                     </a>
                     <a href="'.$android_url.'">
-                        <img src="https://www.zimconnections.com/wp-content/uploads/2022/05/google-download.png" alt="">
+                        <img src="https://www.zimconnections.com/des/wp-content/uploads/2022/03/google-download.png" alt="">
                     </a>
                 </div>
                 <div class="c-hero__button">
